@@ -1,24 +1,25 @@
+'use client';
+
 import type { NextPage } from 'next';
-import React, { useEffect, useState, useCallback } from 'react';
-import { EditorProps } from '../components/editor';
-import { Button } from '../components/button';
+import React, {useEffect, useState, useCallback, Suspense} from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { useEntryStore } from '../hooks/useEntryStore';
+import { useEntryStore } from '../../hooks/useEntryStore';
 
-import { Streak } from '../components/streak';
-import { Modal } from '../components/modal';
-import { reference_image, instructions } from '../config/event';
-import styles from '../styles/editor.module.scss';
-import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
+import { reference_image, instructions } from '../../config/event';
+import styles from '../../styles/editor.module.scss';
+import { useRouter } from 'next/navigation';
+import { Modal } from '../../components/modal/Modal';
+import { Streak } from '../../components/streak/Streak';
+import { Button } from '../../components/button/Button';
+import { Editor } from '../../components/editor/Editor';
 
-const Editor = dynamic<EditorProps>(
-  () => import('../components/editor').then((mod) => mod.Editor) as any,
-  { ssr: false, loading: () => <div>Loading...</div> }
-);
 const STREAK_TIMEOUT = 10 * 1000;
 
 const POWER_MODE_ACTIVATION_THRESHOLD = 200;
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
 
 const EditorView: NextPage = () => {
   const { entry, updateHtml, isSubmitted, updateIsSubmitted, updateIsLoading } =
@@ -72,18 +73,24 @@ const EditorView: NextPage = () => {
         <pre>{instructions}</pre>
       </Modal>
       <Modal show={showReference} setShow={setShowReference}>
-        <img src={reference_image} className={styles.referenceImage}  alt="Image de référence"/>
+        <img
+          src={reference_image}
+          className={styles.referenceImage}
+          alt='Image de référence'
+        />
       </Modal>
       <Streak streak={streak} powerMode={powerMode} />
       <div
         className={powerMode ? styles.backgroundPowerMode : styles.background}
       />
 
-      <Editor
-        onChange={onChange}
-        className={styles.editor}
-        defaultValue={entry?.html || ''}
-      />
+      <Suspense fallback={<Loading />}>
+        <Editor
+          onChange={onChange}
+          className={styles.editor}
+          defaultValue={entry?.html || ''}
+        />
+      </Suspense>
 
       <div className={styles.editorViewNametag}>{entry?.handle}</div>
 

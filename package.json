@@ -11,28 +11,28 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "ace-builds": "^1.4.14",
-    "classnames": "^2.3.1",
-    "framer-motion": "^6.2.8",
-    "next": "12.1.2",
+    "ace-builds": "1.32.7",
+    "classnames": "2.5.1",
+    "framer-motion": "11.0.8",
+    "next": "14.1.2",
     "query-string": "7.1.1",
-    "react": "17.0.2",
-    "react-ace": "^9.5.0",
-    "react-dom": "17.0.2",
+    "react": "18.2.0",
+    "react-ace": "10.1.0",
+    "react-dom": "18.2.0",
     "react-hook-form": "7.29.0",
-    "sass": "^1.49.9",
-    "swr": "^1.2.2",
-    "use-debounce": "^7.0.1",
-    "zustand": "^3.7.1",
-    "zustand-persist": "^0.4.0"
+    "sass": "1.71.1",
+    "swr": "1.2.2",
+    "use-debounce": "7.0.1",
+    "zustand": "3.7.1",
+    "zustand-persist": "0.4.0"
   },
   "devDependencies": {
-    "@types/node": "17.0.23",
-    "@types/react": "17.0.39",
+    "@types/node": "20.11.24",
+    "@types/react": "18.2.62",
     "eslint": "8.12.0",
-    "eslint-config-next": "12.1.2",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.2.5",
-    "typescript": "4.6.3"
+    "eslint-config-next": "14.1.2",
+    "eslint-config-prettier": "9.1.0",
+    "prettier": "3.2.5",
+    "typescript": "5.3.3"
   }
 }

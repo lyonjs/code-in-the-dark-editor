@@ -1,13 +1,14 @@
-import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
+"use client"
+
+import { useRouter } from 'next/navigation';
 import React from 'react';
-import { useEntryStore } from '../hooks/useEntryStore';
-import { showPreview } from '../config/event';
-import { Button } from '../components/button';
+import { useEntryStore } from '../../hooks/useEntryStore';
+import { showPreview } from '../../config/event';
+import {Button} from "../../components/button/Button";
 
-import styles from '../styles/thanks.module.scss';
+import styles from '../../styles/thanks.module.scss';
 
-const Home: NextPage = () => {
+export default function Page() {
   const router = useRouter();
   const { updateIsSubmitted } = useEntryStore();
 
@@ -30,6 +31,4 @@ const Home: NextPage = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}

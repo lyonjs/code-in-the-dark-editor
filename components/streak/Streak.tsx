@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Exclamation } from './exclamation';
-import { Timer } from './timer';
+import { Exclamation } from './Exclamation';
+import { Timer } from './Timer';
 import styles from './style.module.scss';
 import { motion } from 'framer-motion';
 
