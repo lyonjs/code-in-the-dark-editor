@@ -23,14 +23,8 @@
 
 .close {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  padding: 5px;
-  border: 0;
-  font-weight: bolder;
-  -webkit-appearance: none;
-  background: none;
-  color: black;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
 }
 
@@ -38,9 +32,11 @@
   padding: 1.25rem 1.5rem;
   border-radius: 4px;
   background-color: white;
+  border: 2px solid #3a9364;
   color: black;
   height: 100%;
   display: flex;
+
   img {
     margin: auto;
   }

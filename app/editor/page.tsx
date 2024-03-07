@@ -92,7 +92,7 @@ const EditorView: NextPage = () => {
         />
       </Suspense>
 
-      <div className={styles.editorViewNametag}>{entry?.handle}</div>
+      <div className={styles.editorViewNametag}>{entry?.fullName}</div>
 
       <div className={styles.editorViewControls}>
         <div className={styles.editorViewReference}>
@@ -109,13 +109,13 @@ const EditorView: NextPage = () => {
             onClick={() => setShowInstructions(true)}
             className={`${styles.editorViewButton} ${styles.editorViewButtonsInstructions}`}
           >
-            Instructions
+            Instructions 📖
           </Button>
           <Button
             className={`${styles.editorViewButton} ${styles.editorViewButtonsFinish}`}
             onClick={finishHandler}
           >
-            Finish
+            Finish 🏁
           </Button>
         </div>
       </div>

@@ -7,25 +7,25 @@ import { useEffect } from 'react';
 
 export default function Page() {
     const router = useRouter();
-    const { entry, updateHandle, updateFullName, updateId, updateIsLoading } =
+    const { entry, updateFullName, updateReferenceUrl, updateId, updateIsLoading } =
         useEntryStore();
     const {
         register,
         handleSubmit,
     } = useForm({
-        defaultValues: { handle: entry?.handle, fullName: entry?.fullName },
+        defaultValues: { fullName: entry?.fullName, referenceUrl: entry?.referenceUrl },
     });
     const onSubmit = async (data: { [x: string]: any }) => {
         updateIsLoading(true);
-        updateHandle(data.handle);
         updateFullName(data.fullName);
+        updateReferenceUrl(data.referenceUrl);
 
         // TODO : Create user in DB
 
         updateId(0);
         updateIsLoading(false);
 
-        await router.push('/editor');
+        router.push('/editor');
     };
 
     useEffect(() => {
@@ -38,23 +38,19 @@ export default function Page() {
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <h1>Welcome!</h1>
-                <h3>Please state you handle and your name</h3>
+                <h3>Please state your name 👇🏼</h3>
                 <input
                     type='text'
-                    placeholder='Handle'
-                    {...register('handle', {
-                        required: true,
-                        max: 15,
-                        min: 3,
-                        maxLength: 15,
-                    })}
-                />
-                <input
-                    type='text'
-                    placeholder='Full name'
+                    placeholder='Name'
                     {...register('fullName', { required: true, max: 80, min: 5 })}
                 />
 
+                <h4>Reference URL (optional)</h4>
+                <input
+                    type='text'
+                    placeholder='Reference URL'
+                    {...register('referenceUrl', { required: false })}
+                />
                 <input type='submit' className='button' />
             </form>
         </>

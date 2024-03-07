@@ -33,6 +33,9 @@ h6,
 }
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 15px;
   font-family: 'Press Start 2P', sans-serif;
   font-size: 12px;

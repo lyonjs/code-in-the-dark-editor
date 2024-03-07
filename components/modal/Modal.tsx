@@ -1,4 +1,6 @@
 import styles from './styles.module.scss';
+import {Button} from "../button/Button";
+
 export const Modal = ({
   children,
   show,
@@ -12,13 +14,12 @@ export const Modal = ({
     {show && (
       <div className={styles.overlay} onClick={() => setShow(false)}>
         <div className={styles.modal}>
-          <button
+          <Button
             className={styles.close}
-            type='button'
             onClick={() => setShow(false)}
           >
             X
-          </button>
+          </Button>
           <div onClick={(e) => e.stopPropagation()} className={styles.body}>
             {children}
           </div>

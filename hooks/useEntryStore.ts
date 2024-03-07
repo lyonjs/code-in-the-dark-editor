@@ -3,7 +3,7 @@ import persist from '../lib/persist';
 
 interface Entry {
   id?: number;
-  handle?: string;
+  referenceUrl?: string;
   fullName?: string;
   html?: string;
   submitted?: boolean;
@@ -15,7 +15,7 @@ interface EntrytStore {
   entry: Entry | null;
   updateId: (id: number) => void;
   updateFullName: (fullName: string) => void;
-  updateHandle: (handle: string) => void;
+  updateReferenceUrl: (referenceUrl: string) => void;
   updateHtml: (html: string) => void;
   updateIsSubmitted: (submitted: boolean) => void;
   updateIsLoading: (isLoading: boolean) => void;
@@ -48,11 +48,11 @@ export const useEntryStore = createStore<EntrytStore>(
           },
         }));
       },
-      updateHandle: (handle: string) => {
+      updateReferenceUrl: (url: string) => {
         set((state) => ({
           entry: {
             ...state.entry,
-            handle: handle,
+            referenceUrl: url,
           },
         }));
       },
