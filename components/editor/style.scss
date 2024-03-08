@@ -1,0 +1,44 @@
+:root {
+  --keyword-color: #00FF79;
+  --comment-color: #0DFDFF;
+  --text-color: #F9FF00;
+}
+
+.ace-vibrant-ink {
+  .ace_keyword,
+  .ace_meta,
+  .ace_fold,
+  .ace_entity.ace_name.ace_function,
+  .ace_support.ace_function,
+  .ace_variable {
+    color: var(--keyword-color);
+  }
+
+  .ace_comment {
+    color: var(--comment-color);
+    display: inline-block;
+  }
+
+  .ace_gutter {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .ace_constant,
+  .ace_constant.ace_character,
+  .ace_constant.ace_character.ace_escape,
+  .ace_constant.ace_other,
+  .ace_string {
+    color: var(--text-color);
+    animation: pulse 1.5s infinite both;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    animation-timing-function: ease-out;
+  }
+  50% {
+    opacity: 0.5;
+    animation-timing-function: ease-in;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-html';
 import 'ace-builds/src-noconflict/theme-vibrant_ink';
+import './style.scss';
 
 export interface EditorProps {
   onChange?: (newValue: string) => void;
