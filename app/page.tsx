@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEntryStore } from '../hooks/useEntryStore';
 import React, { useEffect, useState } from 'react';
 import { TemplateName } from '../config/templates';
-import Image from "next/image";
+import Image from 'next/image';
 
 import styles from '../styles/register.module.scss';
 
@@ -68,7 +68,12 @@ export default function Page() {
             </option>
           ))}
         </select>
-        <Image src="/page.png" alt="Image template reference" width={200} height={200} />
+        <Image
+          src='/page.png'
+          alt='Image template reference'
+          width={200}
+          height={200}
+        />
         <input type='submit' className='button' />
       </form>
     </>

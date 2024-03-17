@@ -6,8 +6,6 @@ This is a rewrite of the Coffescript version, it's coded in Next.js !
 
 ## Demo 🔗
 
-
-
 ## Getting Started 🆕
 
 To set up your event have a look at the file called `config/templtes.ts` in this file you set up the reference image and the instruction. You can put your images in the public folder.
@@ -33,4 +31,3 @@ Big thanks to https://github.com/vLX42/code-in-the-dark which enabled me to use 
 https://github.com/codeinthedark/codeinthedark.github.io More about the Code In The Dark concept
 
 https://github.com/MHase/code-in-the-dark-uber-editor/tree/develop/ For some of the CSS and the idea to do a rewrite in React
-

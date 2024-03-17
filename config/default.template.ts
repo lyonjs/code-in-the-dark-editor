@@ -1,4 +1,4 @@
-import { TemplateInformations } from "./templates";
+import { TemplateInformations } from './templates';
 
 export const DefaultTemplate: TemplateInformations = {
   eventId: 1,

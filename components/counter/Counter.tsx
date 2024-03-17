@@ -1,6 +1,6 @@
-import Countdown, {zeroPad} from 'react-countdown';
+import Countdown, { zeroPad } from 'react-countdown';
 import styles from './styles.module.scss';
-import {redirect} from "next/navigation";
+import { redirect } from 'next/navigation';
 
 interface CounterRenderer {
   minutes: number;
@@ -18,7 +18,9 @@ export const Counter = () => {
 
       // Render a countdown
       return (
-        <span className={`${styles.counter} ${isLastTime ? styles.pulsation : ''}`}>
+        <span
+          className={`${styles.counter} ${isLastTime ? styles.pulsation : ''}`}
+        >
           {zeroPad(minutes)}:{zeroPad(seconds)}
         </span>
       );

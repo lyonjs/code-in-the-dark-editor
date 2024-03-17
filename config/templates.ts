@@ -1,4 +1,4 @@
-import { DefaultTemplate } from "./default.template";
+import { DefaultTemplate } from './default.template';
 
 export interface TemplateInformations {
   eventId: number;
@@ -11,11 +11,14 @@ export interface TemplateInformations {
 }
 
 export enum TemplateName {
-  DEFAULT = "DEFAULT",
+  DEFAULT = 'DEFAULT',
 }
 
 export type TemplateNameList = keyof typeof TemplateName;
 
-export const templatesDictionary: Record<TemplateNameList, TemplateInformations> = {
+export const templatesDictionary: Record<
+  TemplateNameList,
+  TemplateInformations
+> = {
   DEFAULT: DefaultTemplate,
-}
+};

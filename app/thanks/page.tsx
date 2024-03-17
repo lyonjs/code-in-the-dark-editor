@@ -11,7 +11,6 @@ export default function Page() {
   const router = useRouter();
   const { entry, updateIsSubmitted } = useEntryStore();
 
-
   return (
     <div className={styles.thanksRoot}>
       <h1>Thanks ! 🙏🏼</h1>

@@ -1,6 +1,10 @@
 import createStore from 'zustand';
 import persist from '../lib/persist';
-import { TemplateInformations, TemplateNameList, templatesDictionary } from "../config/templates";
+import {
+  TemplateInformations,
+  TemplateNameList,
+  templatesDictionary,
+} from '../config/templates';
 
 interface Entry {
   id?: number;
