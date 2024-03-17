@@ -10,7 +10,7 @@ This is a rewrite of the Coffescript version, it's coded in Next.js !
 
 ## Getting Started 🆕
 
-To set up your event have a look at the file called `config/event.tsx` in this file you set up the reference image and the instruction. You can put your images in the public folder.
+To set up your event have a look at the file called `config/templtes.ts` in this file you set up the reference image and the instruction. You can put your images in the public folder.
 
 First, run the development server:
 

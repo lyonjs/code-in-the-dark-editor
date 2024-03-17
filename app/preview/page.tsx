@@ -1,12 +1,11 @@
-"use client"
+'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useEntryStore } from '../../hooks/useEntryStore';
-import { injectCode, reference_image, showPreview } from '../../config/event';
 
-import {Modal} from "../../components/modal/Modal";
-import {Button} from "../../components/button/Button";
+import { Modal } from '../../components/modal/Modal';
+import { Button } from '../../components/button/Button';
 import styles from '../../styles/preview.module.scss';
 
 export default function Page() {
@@ -16,20 +15,19 @@ export default function Page() {
   const [showReference, setShowReference] = useState(false);
 
   useEffect(() => {
-    console.log(showPreview);
-    if (showPreview) {
+    if (entry?.template?.showPreview) {
       const doc = iframeRef?.current?.contentDocument;
       doc?.open();
-      doc?.write(injectCode + entry?.html || '');
+      doc?.write(entry.template.injectCode + entry?.html || '');
       doc?.close();
     }
-  }, [entry?.html]);
+  }, [entry?.html, entry?.template?.injectCode, entry?.template?.showPreview]);
 
   return (
     <>
       <Modal show={showReference} setShow={setShowReference}>
         <img
-          src={reference_image}
+          src={entry?.template?.referenceImage}
           className={styles.referenceImage}
           alt='Image de référence'
         />
@@ -48,10 +46,10 @@ export default function Page() {
         <div
           onClick={() => setShowReference(true)}
           className={styles.editorViewReferenceImage}
-          style={{ backgroundImage: `url(${reference_image})` }}
-        ></div>
+          style={{ backgroundImage: `url(${entry?.template?.referenceImage})` }}
+        />
       </div>
-      {showPreview && (
+      {entry?.template?.showPreview && (
         <iframe ref={iframeRef} className={styles.resultPreview} />
       )}
     </>

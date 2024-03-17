@@ -1,7 +1,10 @@
-export const eventId = 1;
-export const eventName = 'Event Name';
-export const reference_image = '/page.png';
-export const instructions = `
+import { TemplateInformations } from "./templates";
+
+export const DefaultTemplate: TemplateInformations = {
+  eventId: 1,
+  eventName: 'Event Name',
+  referenceImage: '/page.png',
+  instructions: `
 --- The rules ---
 1) No previews - of either results or assets!
 2) Stay in this editor at all times
@@ -19,8 +22,8 @@ Good luck and most important of all; have fun!
 /col3-image.jpg (232×152) - column 3 image
 Font: 'DFDS' is loaded
 Light blue color: #58b9fe;
-`;
-
-export const injectCode = `<link rel="stylesheet"  href="https://unpkg.com/@dfds-frontend/fonts@0.0.4/main/font.css"  />`;
-export const showPreview = true;
-export const demoMode = true;
+`,
+  injectCode: `<link rel="stylesheet"  href="https://unpkg.com/@dfds-frontend/fonts@0.0.4/main/font.css"  />`,
+  showPreview: true,
+  demoMode: true,
+};

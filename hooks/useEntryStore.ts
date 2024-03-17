@@ -1,9 +1,10 @@
 import createStore from 'zustand';
 import persist from '../lib/persist';
+import { TemplateInformations, TemplateNameList, templatesDictionary } from "../config/templates";
 
 interface Entry {
   id?: number;
-  referenceUrl?: string;
+  template?: TemplateInformations;
   fullName?: string;
   html?: string;
   submitted?: boolean;
@@ -15,7 +16,7 @@ interface EntrytStore {
   entry: Entry | null;
   updateId: (id: number) => void;
   updateFullName: (fullName: string) => void;
-  updateReferenceUrl: (referenceUrl: string) => void;
+  updateTemplate: (reference: TemplateNameList) => void;
   updateHtml: (html: string) => void;
   updateIsSubmitted: (submitted: boolean) => void;
   updateIsLoading: (isLoading: boolean) => void;
@@ -48,11 +49,13 @@ export const useEntryStore = createStore<EntrytStore>(
           },
         }));
       },
-      updateReferenceUrl: (url: string) => {
+      updateTemplate: (templateName: TemplateNameList) => {
+        console.log(templateName);
+        console.log(templatesDictionary[templateName]);
         set((state) => ({
           entry: {
             ...state.entry,
-            referenceUrl: url,
+            template: templatesDictionary[templateName],
           },
         }));
       },
@@ -65,17 +68,17 @@ export const useEntryStore = createStore<EntrytStore>(
         }));
       },
       updateIsLoading: (value: boolean) => {
-        set((state) => ({
+        set((_) => ({
           isLoading: value,
         }));
       },
       updateIsSubmitted: (value: boolean) => {
-        set((state) => ({
+        set((_) => ({
           isSubmitted: value,
         }));
       },
       clear: () => {
-        set((state) => ({
+        set((_) => ({
           entry: null,
         }));
       },
