@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useEntryStore } from '../hooks/useEntryStore';
 import React, { useEffect, useState } from 'react';
-import { TemplateName } from '../config/templates';
+import { TemplateName, templatesDictionary } from "../config/templates";
 import Image from 'next/image';
 
 import styles from '../styles/register.module.scss';
@@ -69,7 +69,8 @@ export default function Page() {
           ))}
         </select>
         <Image
-          src='/page.png'
+          priority
+          src={templatesDictionary[selectedTemplate].referenceImage}
           alt='Image template reference'
           width={200}
           height={200}

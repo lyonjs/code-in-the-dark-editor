@@ -15,10 +15,10 @@ export default function Page() {
   const [showReference, setShowReference] = useState(false);
 
   useEffect(() => {
-    if (entry?.template?.showPreview) {
+    if (entry?.template?.showPreview && entry?.html) {
       const doc = iframeRef?.current?.contentDocument;
       doc?.open();
-      doc?.write(entry.template.injectCode + entry?.html || '');
+      doc?.write(entry.template.injectCode + entry?.html);
       doc?.close();
     }
   }, [entry?.html, entry?.template?.injectCode, entry?.template?.showPreview]);

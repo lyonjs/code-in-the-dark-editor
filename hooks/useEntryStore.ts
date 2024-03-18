@@ -54,8 +54,6 @@ export const useEntryStore = createStore<EntrytStore>(
         }));
       },
       updateTemplate: (templateName: TemplateNameList) => {
-        console.log(templateName);
-        console.log(templatesDictionary[templateName]);
         set((state) => ({
           entry: {
             ...state.entry,

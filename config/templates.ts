@@ -1,4 +1,5 @@
 import { DefaultTemplate } from './default.template';
+import { TenderTemplate } from "./tender.template";
 
 export interface TemplateInformations {
   eventId: number;
@@ -12,6 +13,7 @@ export interface TemplateInformations {
 
 export enum TemplateName {
   DEFAULT = 'DEFAULT',
+  TENDER = 'TENDER',
 }
 
 export type TemplateNameList = keyof typeof TemplateName;
@@ -21,4 +23,5 @@ export const templatesDictionary: Record<
   TemplateInformations
 > = {
   DEFAULT: DefaultTemplate,
+  TENDER: TenderTemplate
 };
