@@ -9,10 +9,25 @@ import { Button } from '../../components/button/Button';
 import styles from '../../styles/preview.module.scss';
 
 export default function Page() {
-  const { entry, updateIsSubmitted } = useEntryStore();
+  const { entry, updateIsSubmitted, clear } = useEntryStore();
   const router = useRouter();
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [showReference, setShowReference] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'b') {
+        setShowButton(!showButton);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showButton]);
 
   useEffect(() => {
     if (entry?.template?.showPreview && entry?.html) {
@@ -32,15 +47,30 @@ export default function Page() {
           alt='Image de référence'
         />
       </Modal>
-      <Button
-        onClick={() => {
-          updateIsSubmitted(false);
-          router.push('/editor');
-        }}
-        className={styles.backButton}
-      >
-        Retour à l&apos;IDE
-      </Button>
+      {showButton ? (
+        <div className={styles.backButton}>
+          <Button
+            onClick={() => {
+              updateIsSubmitted(false);
+              router.push('/editor');
+            }}
+            className={''}
+          >
+            Retour à l&apos;IDE
+          </Button>
+          <Button
+            onClick={() => {
+              localStorage.removeItem('root');
+              clear();
+              updateIsSubmitted(false);
+              router.push('/');
+            }}
+            className={''}
+          >
+            Reset l&apos;éditeur
+          </Button>
+        </div>
+      ) : null}
       <div className={styles.editorViewReference}>
         Reference
         <div
