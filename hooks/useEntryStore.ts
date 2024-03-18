@@ -1,10 +1,10 @@
-import createStore from 'zustand';
-import persist from '../lib/persist';
 import {
   TemplateInformations,
   TemplateNameList,
   templatesDictionary,
 } from '../config/templates';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface Entry {
   id?: number;
@@ -14,7 +14,7 @@ interface Entry {
   submitted?: boolean;
 }
 
-interface EntrytStore {
+interface EntryStore {
   isSubmitted: boolean;
   isLoading: boolean;
   entry: Entry | null;
@@ -27,13 +27,9 @@ interface EntrytStore {
   clear: () => void;
 }
 
-export const useEntryStore = createStore<EntrytStore>(
+export const useEntryStore = create<EntryStore>()(
   persist(
-    {
-      key: 'entry',
-      denylist: ['isLoading'],
-    },
-    (set) => ({
+    (set, _) => ({
       isSubmitted: false,
       isLoading: false,
       entry: null,
@@ -84,6 +80,10 @@ export const useEntryStore = createStore<EntrytStore>(
           entry: null,
         }));
       },
-    })
+    }),
+    {
+      name: 'entry',
+      skipHydration: true,
+    }
   )
 );

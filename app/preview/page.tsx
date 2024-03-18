@@ -15,6 +15,7 @@ export default function Page() {
   const [showReference, setShowReference] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'b') {
@@ -35,6 +36,8 @@ export default function Page() {
       doc?.open();
       doc?.write(entry.template.injectCode + entry?.html);
       doc?.close();
+      console.log(doc?.hasFocus());
+
     }
   }, [entry?.html, entry?.template?.injectCode, entry?.template?.showPreview]);
 
@@ -82,6 +85,7 @@ export default function Page() {
       {entry?.template?.showPreview && (
         <iframe ref={iframeRef} className={styles.resultPreview} />
       )}
+      <div className={styles.focusZone} />
     </>
   );
 }
