@@ -4,6 +4,7 @@ $spacing: 20px;
   height: calc(100vh - 10px);
   position: relative;
   font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
 
   .editor {
     opacity: 0.7;
