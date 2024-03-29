@@ -1,9 +1,9 @@
 import { TemplateInformations } from './templates';
 
-export const DefaultTemplate: TemplateInformations = {
+export const DFDSTemplate: TemplateInformations = {
   eventId: 1,
   eventName: 'Event Name',
-  referenceImage: '/templates/default/page.png',
+  referenceImage: '/templates/dfds/page.png',
   instructions: `
 --- The rules ---
 
