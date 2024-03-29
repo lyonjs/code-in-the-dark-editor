@@ -12,23 +12,24 @@ export default function Page() {
   const { entry, updateIsSubmitted, clear } = useEntryStore();
   const router = useRouter();
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [iframeDocument, setIframeDocument] = useState(iframeRef?.current?.contentDocument);
   const [showReference, setShowReference] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'b') {
-        setShowButton(!showButton);
-      }
-    };
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'b') {
+          setShowButton(!showButton);
+        }
+      };
 
-    document.addEventListener('keydown', handleKeyDown);
+      iframeDocument?.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [showButton]);
+      return () => {
+        iframeDocument?.removeEventListener('keydown', handleKeyDown);
+      };
+  }, [iframeDocument, showButton]);
 
   useEffect(() => {
     if (entry?.template?.showPreview && entry?.html) {
@@ -36,8 +37,7 @@ export default function Page() {
       doc?.open();
       doc?.write(entry.template.injectCode || '' + entry?.html);
       doc?.close();
-      console.log(doc?.hasFocus());
-
+      setIframeDocument(doc);
     }
   }, [entry?.html, entry?.template?.injectCode, entry?.template?.showPreview]);
 
@@ -47,7 +47,7 @@ export default function Page() {
         <img
           src={entry?.template?.referenceImage}
           className={styles.referenceImage}
-          alt='Image de référence'
+          alt="Image de référence"
         />
       </Modal>
       {showButton ? (
@@ -85,7 +85,6 @@ export default function Page() {
       {entry?.template?.showPreview && (
         <iframe ref={iframeRef} className={styles.resultPreview} />
       )}
-      <div className={styles.focusZone} />
     </>
   );
 }
