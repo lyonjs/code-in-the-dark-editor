@@ -16,7 +16,7 @@ export default function Page() {
   );
   const { entry, updateFullName, updateId, updateIsLoading, updateTemplate } =
     useEntryStore();
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     defaultValues: { fullName: entry?.fullName, templateName: entry?.template },
   });
 
@@ -48,6 +48,7 @@ export default function Page() {
           type='text'
           placeholder='Name'
           {...register('fullName', { required: true, max: 80, min: 5 })}
+          className={formState.errors.fullName ? styles.isWizz : ''}
         />
 
         <label htmlFor='templateSelect'>Select a template:</label>
