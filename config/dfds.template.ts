@@ -17,11 +17,11 @@ Good luck and most important of all; have fun!
 
 --- Assets ---
 
-/templates/default/DFDS-logo-positive.png (2747×949) - DFDS logo
-/templates/default/unroro-map.jpg (483×300) - map
-/templates/default/col1-image.jpg (232×152) - column 1 image
-/templates/default/col2-image.jpg (232×152) - column 2 image
-/templates/default/col3-image.jpg (232×152) - column 3 image
+/templates/dfds/DFDS-logo-positive.png (2747×949) - DFDS logo
+/templates/dfds/unroro-map.jpg (483×300) - map
+/templates/dfds/col1-image.jpg (232×152) - column 1 image
+/templates/dfds/col2-image.jpg (232×152) - column 2 image
+/templates/dfds/col3-image.jpg (232×152) - column 3 image
 
 Font: 'DFDS' is loaded
 Light blue color: #58b9fe;
