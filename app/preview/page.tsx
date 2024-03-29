@@ -34,7 +34,7 @@ export default function Page() {
     if (entry?.template?.showPreview && entry?.html) {
       const doc = iframeRef?.current?.contentDocument;
       doc?.open();
-      doc?.write(entry.template.injectCode + entry?.html);
+      doc?.write(entry.template.injectCode || '' + entry?.html);
       doc?.close();
       console.log(doc?.hasFocus());
 
