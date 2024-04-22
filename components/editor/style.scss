@@ -2,6 +2,11 @@
   --keyword-color: #00ff79;
   --comment-color: #0dfdff;
   --text-color: #f9ff00;
+
+  --power-mode-keyword-color: #00DDFF;
+  --power-mode-comment-color: #00FF79;
+  --power-mode-text-color: #F9FF00;
+  --power-mode-attribute-color: #8194F4;
 }
 
 .ace-vibrant-ink {
@@ -10,13 +15,15 @@
   .ace_fold,
   .ace_entity.ace_name.ace_function,
   .ace_support.ace_function,
-  .ace_variable {
+  .ace_variable
+  {
     color: var(--keyword-color);
   }
 
   .ace_comment {
     color: var(--comment-color);
     display: inline-block;
+    animation: grow 1.5s infinite both;
   }
 
   .ace_gutter {
@@ -27,9 +34,37 @@
   .ace_constant.ace_character,
   .ace_constant.ace_character.ace_escape,
   .ace_constant.ace_other,
-  .ace_string {
-    color: var(--text-color);
+  .ace_string,
+  .ace_numeric {
+    color: var(--text-color) !important;
     animation: pulse 1.5s infinite both;
+  }
+}
+
+[class*="powerMode"] .ace-vibrant-ink {
+  .ace_keyword,
+  .ace_meta,
+  .ace_fold,
+  .ace_entity.ace_name.ace_function,
+  .ace_support.ace_function,
+  .ace_variable {
+    color: var(--power-mode-keyword-color);
+  }
+
+  .ace_comment {
+    color: var(--power-mode-comment-color);
+  }
+
+  .ace_constant,
+  .ace_constant.ace_character,
+  .ace_constant.ace_character.ace_escape,
+  .ace_constant.ace_other,
+  .ace_string {
+    color: var(--power-mode-text-color);
+  }
+
+  .ace_entity.ace_other.ace_attribute-name {
+    color: var(--power-mode-attribute-color);
   }
 }
 
@@ -39,6 +74,16 @@
   }
   50% {
     opacity: 0.5;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes grow {
+  0% {
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: scale(1.3);
     animation-timing-function: ease-in;
   }
 }

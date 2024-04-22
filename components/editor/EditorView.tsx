@@ -63,9 +63,25 @@ export const EditorView = () => {
     router.push('/thanks');
   }, [updateIsLoading, updateIsSubmitted, router]);
 
+  const powerModeShakeOnKeyDown = () => {
+    if (!powerMode) {
+      return;
+    }
+
+    const intensity = 1 + 2 * Math.random() * Math.floor(
+      (streak - POWER_MODE_ACTIVATION_THRESHOLD) / 100,
+    );
+    const marginLeftRight = intensity * (Math.random() > 0.5 ? -1 : 1);
+    const marginTopBottom = intensity * (Math.random() > 0.5 ? -1 : 1);
+    const editor = document.querySelector('#ace-editor') as HTMLElement;
+    editor.style.margin = `${marginTopBottom}px ${marginLeftRight}px`;
+    setTimeout(() => editor.style.margin = '', 75);
+  };
+
   return (
     <div
       className={`${styles.editorView} ${powerMode && styles.powerModeOuter}`}
+      onKeyDown={powerModeShakeOnKeyDown}
     >
       <Modal show={showInstructions} setShow={setShowInstructions}>
         <pre>{entry?.template?.instructions}</pre>
