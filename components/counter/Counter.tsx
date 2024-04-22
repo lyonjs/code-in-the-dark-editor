@@ -19,7 +19,7 @@ export const Counter = () => {
       // Render a countdown
       return (
         <span
-          className={`${styles.counter} ${isLastTime ? styles.pulsation : ''} counter`}
+          className={`${styles.counter} ${isLastTime ? styles.pulsation : ''}`}
         >
           {zeroPad(minutes)}:{zeroPad(seconds)}
         </span>
