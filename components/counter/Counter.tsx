@@ -27,5 +27,5 @@ export const Counter = () => {
     }
   };
 
-  return <Countdown date={Date.now() + 900000} renderer={renderer} />;
+  return <Countdown date={Date.now() + 1200000} renderer={renderer} />;
 };
