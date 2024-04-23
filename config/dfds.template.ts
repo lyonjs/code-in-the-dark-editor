@@ -26,7 +26,6 @@ Good luck and most important of all; have fun!
 Font: 'DFDS' is loaded
 Light blue color: #58b9fe;
 `,
-  injectCode: `<link rel="stylesheet"  href="https://unpkg.com/@dfds-frontend/fonts@0.0.4/main/font.css"  />`,
   showPreview: true,
   demoMode: true,
 };
