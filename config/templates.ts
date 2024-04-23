@@ -1,5 +1,6 @@
 import {ModeTemplate} from "./mode.template";
 import {CityTemplate} from "./city.template";
+import {CitdTemplate} from "./citd.template";
 
 export interface TemplateInformations {
   eventId: number;
@@ -14,6 +15,7 @@ export interface TemplateInformations {
 export enum TemplateName {
   MODE= 'MODE',
   CITY = 'CITY',
+  CITD = 'CITD',
 }
 
 export type TemplateNameList = keyof typeof TemplateName;
@@ -24,4 +26,5 @@ export const templatesDictionary: Record<
 > = {
   MODE: ModeTemplate,
   CITY: CityTemplate,
+  CITD: CitdTemplate
 };
