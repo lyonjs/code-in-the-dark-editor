@@ -1,3 +1,4 @@
+import {ModeTemplate} from "./mode.template";
 import {CityTemplate} from "./city.template";
 
 export interface TemplateInformations {
@@ -11,6 +12,7 @@ export interface TemplateInformations {
 }
 
 export enum TemplateName {
+  MODE= 'MODE',
   CITY = 'CITY',
 }
 
@@ -20,5 +22,6 @@ export const templatesDictionary: Record<
   TemplateNameList,
   TemplateInformations
 > = {
+  MODE: ModeTemplate,
   CITY: CityTemplate,
 };
