@@ -21,8 +21,8 @@ Good luck and most important of all : have fun ! 🥳
 ⚠️ Beware of file extensions !
 ⚠️ All images have straight borders, no radius !
 
-img-woman.jpeg (w 900 x h 1350)
-img-keyboard.jpeg (w 800 x h 367)
+./templates/mode/img-woman.jpeg (w 900 x h 1350)
+./templates/mode/img-keyboard.jpeg (w 800 x h 367)
 
 --- Font ---
 

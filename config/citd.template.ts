@@ -21,8 +21,8 @@ Good luck and most important of all : have fun ! 🥳
 ⚠️ Beware of file extensions !
 ⚠️ All images have straight borders, no radius !
 
-logo-zenika.jpeg (w 350 x h 107)
-logo-indy.jpeg (w 200 x h 102)
+./templates/citd/logo-zenika.jpeg (w 350 x h 107)
+./templates/citd/logo-indy.jpeg (w 200 x h 102)
 
 --- Font ---
 
