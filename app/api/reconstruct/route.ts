@@ -6,8 +6,15 @@ export async function POST(request: Request) {
     diff: res,
     originalHtml: html,
   });
-  console.log('html', html);
-  return new Response(JSON.stringify({ text: 'Hello' }));
+  return new Response();
+}
+
+export async function GET() {
+  return new Response(`${html}`, {
+    headers: {
+      'Content-Type': 'text/html',
+    },
+  });
 }
 
 import { applyPatch } from 'fast-myers-diff';
