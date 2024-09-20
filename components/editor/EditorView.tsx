@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useEffect, useState, useCallback, Suspense } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  Suspense,
+  useRef,
+} from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useEntryStore } from '../../hooks/useEntryStore';
 
@@ -10,6 +16,7 @@ import { Modal } from '../modal/Modal';
 import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
 import { Editor } from './Editor';
+import useCalcPatchesHtml from '../../hooks/useCalcPatchesHtml';
 
 const STREAK_TIMEOUT = 10 * 1000;
 
@@ -17,6 +24,14 @@ const POWER_MODE_ACTIVATION_THRESHOLD = 200;
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
+}
+
+function usePrevious<T>(value: T) {
+  const ref = useRef<T>();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
 }
 
 export const EditorView = () => {
@@ -32,6 +47,20 @@ export const EditorView = () => {
     setStreak(0);
     setPowerMode(false);
   }, STREAK_TIMEOUT);
+
+  const previousHtml = usePrevious(entry?.html) ?? '';
+  const { a } = useCalcPatchesHtml({ html: entry?.html ?? '', previousHtml });
+
+  useEffect(() => {
+    if (!a) {
+      return;
+    }
+    fetch('/api/reconstruct', {
+      body: JSON.stringify([...a]),
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+    });
+  }, [a]);
 
   const onChange = useCallback(
     (newValue: string) => {
@@ -68,14 +97,16 @@ export const EditorView = () => {
       return;
     }
 
-    const intensity = 1 + 2 * Math.random() * Math.floor(
-      (streak - POWER_MODE_ACTIVATION_THRESHOLD) / 100,
-    );
+    const intensity =
+      1 +
+      2 *
+        Math.random() *
+        Math.floor((streak - POWER_MODE_ACTIVATION_THRESHOLD) / 100);
     const marginLeftRight = intensity * (Math.random() > 0.5 ? -1 : 1);
     const marginTopBottom = intensity * (Math.random() > 0.5 ? -1 : 1);
     const editor = document.querySelector('#ace-editor') as HTMLElement;
     editor.style.margin = `${marginTopBottom}px ${marginLeftRight}px`;
-    setTimeout(() => editor.style.margin = '', 75);
+    setTimeout(() => (editor.style.margin = ''), 75);
   };
 
   return (
