@@ -11,10 +11,13 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
+    "@vercel/postgres-kysely": "^0.10.0",
     "ace-builds": "1.32.7",
     "classnames": "2.5.1",
     "fast-myers-diff": "^3.2.0",
     "framer-motion": "11.0.8",
+    "kysely": "^0.27.4",
     "next": "14.1.2",
     "query-string": "7.1.1",
     "react": "18.2.0",

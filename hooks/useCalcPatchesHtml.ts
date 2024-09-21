@@ -10,12 +10,13 @@ export default function useCalcPatchesHtml({
   previousHtml,
   html = '',
 }: UsePingArguments) {
-  const [a, setA] = useState([[0, 0, '']]);
+  const [a, setA] = useState<[number, number, string][]>([]);
   useEffect(() => {
     if (previousHtml === html) {
       return;
     }
-    setA([...calcPatch(previousHtml ?? '', html)]);
+    const patches = [...calcPatch(previousHtml ?? '', html)];
+    setA(patches);
   }, [html, previousHtml]);
 
   return { a };

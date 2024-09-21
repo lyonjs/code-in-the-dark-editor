@@ -34,6 +34,7 @@ function usePrevious<T>(value: T) {
   return ref.current;
 }
 
+const randomId = Math.floor(Math.random() * 10000).toString();
 export const EditorView = () => {
   const router = useRouter();
   const { entry, updateHtml, isSubmitted, updateIsSubmitted, updateIsLoading } =
@@ -51,16 +52,17 @@ export const EditorView = () => {
   const previousHtml = usePrevious(entry?.html) ?? '';
   const { a } = useCalcPatchesHtml({ html: entry?.html ?? '', previousHtml });
 
+  const entry_id = entry?.fullName + randomId;
   useEffect(() => {
-    if (!a) {
+    if (!a.length) {
       return;
     }
-    fetch('/api/reconstruct', {
-      body: JSON.stringify([...a]),
+    fetch(`/api/save-entry/${entry_id}`, {
+      body: JSON.stringify(a),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     });
-  }, [a]);
+  }, [a, entry_id]);
 
   const onChange = useCallback(
     (newValue: string) => {
