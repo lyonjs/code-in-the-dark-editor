@@ -17,6 +17,7 @@ import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
 import { Editor } from './Editor';
 import useCalcPatchesHtml from '../../hooks/useCalcPatchesHtml';
+import { RequestSaveEntry } from '../../app/api/save-entry/[id]/route';
 
 const STREAK_TIMEOUT = 10 * 1000;
 
@@ -57,8 +58,12 @@ export const EditorView = () => {
     if (!a.length) {
       return;
     }
+    const request: RequestSaveEntry = {
+      diff: a,
+      timestamp: new Date(),
+    };
     fetch(`/api/save-entry/${entry_id}`, {
-      body: JSON.stringify(a),
+      body: JSON.stringify(request),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     });
