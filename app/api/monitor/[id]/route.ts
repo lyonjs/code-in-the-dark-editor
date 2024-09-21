@@ -1,17 +1,6 @@
 import { createKysely } from '@vercel/postgres-kysely';
-import { Generated } from 'kysely';
 import { applyPatch } from 'fast-myers-diff';
-
-interface EditsTable {
-  id: Generated<string>;
-  user_id: string;
-  diff: [[number, number, string]];
-  timestamp: Date;
-}
-
-interface Database {
-  edits: EditsTable;
-}
+import { Database } from '../../../../models/database';
 
 const db = createKysely<Database>();
 

@@ -1,16 +1,6 @@
 import { createKysely } from '@vercel/postgres-kysely';
-import { Generated, sql } from 'kysely';
-
-interface EditsTable {
-  id: Generated<string>;
-  user_id: string;
-  diff: [[number, number, string]];
-  timestamp: Date;
-}
-
-interface Database {
-  edits: EditsTable;
-}
+import { sql } from 'kysely';
+import { Database } from '../../../../models/database';
 
 const db = createKysely<Database>();
 
