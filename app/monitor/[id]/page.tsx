@@ -1,28 +1,31 @@
 'use client';
-import { applyPatch } from 'fast-myers-diff';
 import { useEffect, useRef, useState } from 'react';
-import useSWR from 'swr';
 
 import styles from '../../../styles/preview.module.scss';
-
-const REFRESH_INTERVAL_POLLING_IN_MILLISECONDS = 500;
 
 export default function Monitor({ params }: { params: { id: string } }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [_iframeDocument, setIframeDocument] = useState(
     iframeRef?.current?.contentDocument
   );
-  const { data } = useSWR(
-    `/api/monitor/${params.id}`,
-    async (uri) => {
-      const res = await fetch(uri);
-      return await res.text();
-    },
-    {
-      refreshInterval: REFRESH_INTERVAL_POLLING_IN_MILLISECONDS,
-      dedupingInterval: REFRESH_INTERVAL_POLLING_IN_MILLISECONDS,
+  const [data, setData] = useState('');
+  const decoder = new TextDecoder();
+  useEffect(() => {
+    async function fetchReader() {
+      const body = (await fetch(`/api/monitor/${params.id}`)).body;
+      if (!body) {
+        return;
+      }
+      const reader = body.getReader();
+      reader.read().then(async function pump({ value }): Promise<string> {
+        const text = decoder.decode(value);
+        setData(text);
+        const result_1 = await reader.read();
+        return pump(result_1);
+      });
     }
-  );
+    fetchReader();
+  }, []);
 
   useEffect(() => {
     if (!data) {
