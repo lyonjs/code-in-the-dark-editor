@@ -54,19 +54,23 @@ export const EditorView = () => {
   const { a } = useCalcPatchesHtml({ html: entry?.html ?? '', previousHtml });
 
   const entry_id = entry?.fullName + randomId;
+
+  const [n, setN] = useState(0);
   useEffect(() => {
     if (!a.length) {
       return;
     }
     const request: RequestSaveEntry = {
       diff: a,
-      timestamp: new Date(),
+      n: n,
     };
+    setN((n) => n + 1);
     fetch(`/api/save-entry/${entry_id}`, {
       body: JSON.stringify(request),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [a, entry_id]);
 
   const onChange = useCallback(

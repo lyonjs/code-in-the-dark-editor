@@ -4,7 +4,7 @@ export interface EditsTable {
   id: Generated<string>;
   user_id: string;
   diff: [[number, number, string]];
-  timestamp: Date;
+  n: number;
 }
 
 export interface Database {

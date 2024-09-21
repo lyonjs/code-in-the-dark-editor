@@ -6,7 +6,7 @@ const db = createKysely<Database>();
 
 export type RequestSaveEntry = {
   diff: [number, number, string][];
-  timestamp: Date;
+  n: number;
 };
 
 export async function POST(
@@ -18,7 +18,7 @@ export async function POST(
     .values({
       user_id: params.id,
       diff: sql`cast (${JSON.stringify(res.diff)} as jsonb)`,
-      timestamp: res.timestamp,
+      n: res.n,
     })
     .execute();
   return new Response();

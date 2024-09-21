@@ -12,7 +12,7 @@ export async function GET(
     .selectFrom('edits')
     .select('diff')
     .where('user_id', '=', params.id)
-    .orderBy('timestamp asc')
+    .orderBy('n asc')
     .execute();
 
   let html = '';
