@@ -2,7 +2,7 @@ import { createKysely } from '@vercel/postgres-kysely';
 import { applyPatch } from 'fast-myers-diff';
 import { Database } from '../../../../models/database';
 
-const REFRESH_RATE_IN_MS = 500;
+const REFRESH_RATE_IN_MS = 2000;
 const MAXIMUM_POOLING_IN_MS = 20 * 60 * 1000;
 
 const db = createKysely<Database>();
