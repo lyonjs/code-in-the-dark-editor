@@ -4,6 +4,8 @@ import { Database } from '../../../../models/database';
 
 const db = createKysely<Database>();
 
+export const runtime = 'edge';
+
 export type RequestSaveEntry = {
   diff: [number, number, string][];
   n: number;
