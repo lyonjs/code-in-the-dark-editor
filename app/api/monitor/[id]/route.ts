@@ -31,8 +31,15 @@ export async function GET(
 
       // Stop connexion after long period.
       setTimeout(() => {
-        controller.close();
-        client.end();
+        // try finally statement so that controller fails silently
+        try {
+          controller.close();
+        } finally {
+        }
+        try {
+          client.end();
+        } finally {
+        }
       }, MAXIMUM_POOLING_IN_MS);
     },
     cancel() {
