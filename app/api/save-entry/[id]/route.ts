@@ -21,5 +21,7 @@ export async function POST(
       n: res.n,
     })
     .execute();
+  await sql`NOTIFY NEWENTRY`.execute(db);
+
   return new Response();
 }
