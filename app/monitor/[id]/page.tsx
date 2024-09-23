@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { applyPatch } from 'fast-myers-diff';
 
 import styles from '../../../styles/preview.module.scss';
 
@@ -19,9 +20,22 @@ export default function Monitor({ params }: { params: { id: string } }) {
       const reader = body.getReader();
       reader.read().then(async function pump({ value }): Promise<string> {
         const text = decoder.decode(value);
-        setData(text);
-        const result_1 = await reader.read();
-        return pump(result_1);
+        try {
+          const diffs = JSON.parse(text) as [[number, number, string]][];
+          let html = '';
+          for (const diff of diffs) {
+            html = reconstructDiffs({
+              diff: diff,
+              originalHtml: html,
+            });
+          }
+          setData(html);
+        } catch (e) {
+          console.error('Error parsing diffs', e, text);
+        } finally {
+          const result_1 = await reader.read();
+          return pump(result_1);
+        }
       });
     }
     fetchReader();
@@ -43,4 +57,16 @@ export default function Monitor({ params }: { params: { id: string } }) {
       <iframe ref={iframeRef} className={styles.resultPreview} />
     </div>
   );
+}
+
+function reconstructDiffs({
+  diff,
+  originalHtml,
+}: {
+  originalHtml: string;
+  diff: [[number, number, string]];
+}) {
+  const appliedPatches = applyPatch(originalHtml, diff);
+  const patches = [...appliedPatches];
+  return patches.join('');
 }

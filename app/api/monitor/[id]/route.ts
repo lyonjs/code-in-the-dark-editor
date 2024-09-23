@@ -1,8 +1,7 @@
 import { createClient } from '@vercel/postgres';
 import { createKysely } from '@vercel/postgres-kysely';
-import { applyPatch } from 'fast-myers-diff';
-import { Database } from '../../../../models/database';
 import _ from 'lodash';
+import { Database } from '../../../../models/database';
 
 export const runtime = 'edge';
 
@@ -26,11 +25,11 @@ export async function GET(
       client.on(
         'notification',
         _.throttle(async (_message) => {
-          await queueHtml(params.id, controller);
+          await queueDiffs(params.id, controller);
         }, TIME_THROTTLE_NOTIFICATIONS_IN_MS)
       );
 
-      await queueHtml(params.id, controller);
+      await queueDiffs(params.id, controller);
 
       // Stop connexion after long period.
       setTimeout(() => {
@@ -57,39 +56,16 @@ export async function GET(
   });
 }
 
-async function queueHtml(
+async function queueDiffs(
   id: string,
   controller: ReadableStreamDefaultController<any>
 ) {
-  const html = await getAndReconstructHtml(id);
-  controller.enqueue(encoder.encode(html));
-}
-
-async function getAndReconstructHtml(id: string) {
   const diffs = await db
     .selectFrom('edits')
     .select('diff')
     .where('user_id', '=', id)
     .orderBy('n asc')
     .execute();
-  let html = '';
-  for (const diff of diffs.map(({ diff }) => diff)) {
-    html = reconstructDiffs({
-      diff: diff,
-      originalHtml: html,
-    });
-  }
-  return html;
-}
-
-function reconstructDiffs({
-  diff,
-  originalHtml,
-}: {
-  originalHtml: string;
-  diff: [[number, number, string]];
-}) {
-  const appliedPatches = applyPatch(originalHtml, diff);
-  const patches = [...appliedPatches];
-  return patches.join('');
+  const diffsArray = diffs.map(({ diff }) => diff);
+  controller.enqueue(encoder.encode(JSON.stringify(diffsArray)));
 }
