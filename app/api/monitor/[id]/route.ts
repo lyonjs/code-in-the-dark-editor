@@ -22,23 +22,23 @@ export async function GET(
   const readable = new ReadableStream({
     async start(controller) {
       client.on('notification', async (_message) => {
-        const html = await getHtml(params.id);
-        controller.enqueue(encoder.encode(html));
+        await queueHtml(params.id, controller);
       });
 
-      const html = await getHtml(params.id);
-      controller.enqueue(encoder.encode(html));
+      await queueHtml(params.id, controller);
 
       // Stop connexion after long period.
       setTimeout(() => {
         // try finally statement so that controller fails silently
         try {
           controller.close();
-        } finally {
+        } catch (e) {
+          // pass
         }
         try {
           client.end();
-        } finally {
+        } catch (e) {
+          // pass
         }
       }, MAXIMUM_POOLING_IN_MS);
     },
@@ -52,7 +52,15 @@ export async function GET(
   });
 }
 
-async function getHtml(id: string) {
+async function queueHtml(
+  id: string,
+  controller: ReadableStreamDefaultController<any>
+) {
+  const html = await getAndReconstructHtml(id);
+  controller.enqueue(encoder.encode(html));
+}
+
+async function getAndReconstructHtml(id: string) {
   const diffs = await db
     .selectFrom('edits')
     .select('diff')
