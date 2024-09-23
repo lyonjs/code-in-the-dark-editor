@@ -2,10 +2,12 @@ import { createClient } from '@vercel/postgres';
 import { createKysely } from '@vercel/postgres-kysely';
 import { applyPatch } from 'fast-myers-diff';
 import { Database } from '../../../../models/database';
+import _ from 'lodash';
 
 export const runtime = 'edge';
 
 const MAXIMUM_POOLING_IN_MS = 20 * 60 * 1000;
+const TIME_THROTTLE_NOTIFICATIONS_IN_MS = 1000;
 
 const db = createKysely<Database>();
 const encoder = new TextEncoder();
@@ -21,9 +23,12 @@ export async function GET(
 
   const readable = new ReadableStream({
     async start(controller) {
-      client.on('notification', async (_message) => {
-        await queueHtml(params.id, controller);
-      });
+      client.on(
+        'notification',
+        _.throttle(async (_message) => {
+          await queueHtml(params.id, controller);
+        }, TIME_THROTTLE_NOTIFICATIONS_IN_MS)
+      );
 
       await queueHtml(params.id, controller);
 
