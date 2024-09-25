@@ -98,7 +98,22 @@ $spacing: 20px;
   background-image: url(/codeinthedark.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position: bottom 500px right 50%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(/templates/theDarkChapter/logo.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom 200px right 50%;
+    opacity: 0.8;
+  }
 }
 
 .backgroundPowerMode {
