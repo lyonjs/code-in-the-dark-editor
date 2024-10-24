@@ -4,10 +4,11 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useEntryStore } from '../hooks/useEntryStore';
 import React, { useEffect, useState } from 'react';
-import { TemplateName, templatesDictionary } from "../config/templates";
+import { TemplateName, templatesDictionary } from '../config/templates';
 import Image from 'next/image';
 
 import styles from '../styles/register.module.scss';
+import TemplatesList from '../components/templates/TeamplateOptions';
 
 export default function Page() {
   const router = useRouter();
@@ -60,14 +61,7 @@ export default function Page() {
             onChange: (e) => setSelectedTemplate(e.target.value),
           })}
         >
-          {Object.keys(TemplateName).map((template) => (
-            <option
-              key={template}
-              value={TemplateName[template as keyof typeof TemplateName]}
-            >
-              {template}
-            </option>
-          ))}
+          <TemplatesList />
         </select>
         <Image
           priority
@@ -81,3 +75,4 @@ export default function Page() {
     </>
   );
 }
+
