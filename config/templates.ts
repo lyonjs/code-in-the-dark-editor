@@ -17,7 +17,7 @@ import {CityTemplate} from "./city.template";
 import {CitdTemplate} from "./citd.template";
 
 export interface TemplateInformations {
-  eventId: number;
+  eventId: number | string;
   eventName: string;
   referenceImage: string;
   instructions: string;

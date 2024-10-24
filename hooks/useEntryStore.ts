@@ -20,7 +20,7 @@ interface EntryStore {
   entry: Entry | null;
   updateId: (id: number) => void;
   updateFullName: (fullName: string) => void;
-  updateTemplate: (reference: TemplateNameList) => void;
+  updateTemplate: (template: TemplateInformations) => void;
   updateHtml: (html: string) => void;
   updateIsSubmitted: (submitted: boolean) => void;
   updateIsLoading: (isLoading: boolean) => void;
@@ -49,11 +49,11 @@ export const useEntryStore = create<EntryStore>()(
           },
         }));
       },
-      updateTemplate: (templateName: TemplateNameList) => {
+      updateTemplate: (template: TemplateInformations) => {
         set((state) => ({
           entry: {
             ...state.entry,
-            template: templatesDictionary[templateName],
+            template: template,
           },
         }));
       },
