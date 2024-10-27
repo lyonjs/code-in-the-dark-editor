@@ -8,24 +8,12 @@ import { TemplateInformations } from '../../config/templates';
 import { useEntryStore } from '../../hooks/useEntryStore';
 
 import styles from '../../styles/register.module.scss';
-import useSWR from 'swr';
-import fetchTemplates from '../../actions/fetchTemplates';
 
-export default function TemplateForm({
-  templates: newTemplates,
+export default function StartForm({
+  templates,
 }: {
   templates: TemplateInformations[];
 }) {
-  const { data: templates = newTemplates } = useSWR(
-    'templates',
-    async () => {
-      return await fetchTemplates();
-    },
-    {
-      refreshInterval: 2000,
-    }
-  );
-
   const router = useRouter();
   const [selectedTemplateIndex, setSelectedTemplateIndex] = useState<number>(0);
   const { entry, updateFullName, updateId, updateIsLoading, updateTemplate } =
