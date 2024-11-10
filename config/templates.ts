@@ -15,6 +15,10 @@ import {WaveTemplate} from "./wave.template";
 import {ModeTemplate} from "./mode.template";
 import {CityTemplate} from "./city.template";
 import {CitdTemplate} from "./citd.template";
+import {TheDarkChapterOneTemplate} from './theDarkChapterOne.template';
+import {TheDarkChapterTwoTemplate} from './theDarkChapterTwo.template';
+import {TheDarkChapterThreeTemplate} from './theDarkChapterThree.template';
+
 
 export interface TemplateInformations {
   eventId: number;
@@ -44,6 +48,9 @@ export enum TemplateName {
   MODE= 'MODE',
   CITY = 'CITY',
   CITD = 'CITD',
+  THE_DARK_CHAPTER_ONE = 'THE_DARK_CHAPTER_ONE',
+  THE_DARK_CHAPTER_TWO = 'THE_DARK_CHAPTER_TWO',
+  THE_DARK_CHAPTER_THREE = 'THE_DARK_CHAPTER_THREE'
 }
 
 export type TemplateNameList = keyof typeof TemplateName;
@@ -68,5 +75,8 @@ export const templatesDictionary: Record<
   WAVE: WaveTemplate,
   MODE: ModeTemplate,
   CITY: CityTemplate,
-  CITD: CitdTemplate
+  CITD: CitdTemplate,
+  THE_DARK_CHAPTER_ONE: TheDarkChapterOneTemplate,
+  THE_DARK_CHAPTER_TWO: TheDarkChapterTwoTemplate,
+  THE_DARK_CHAPTER_THREE: TheDarkChapterThreeTemplate
 };
