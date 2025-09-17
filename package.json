@@ -24,7 +24,7 @@
     "sass": "1.71.1",
     "swr": "1.2.2",
     "use-debounce": "7.0.1",
-    "zustand": "4.5.2",
+    "zustand": "4.5.7",
     "zustand-persist": "0.4.0"
   },
   "devDependencies": {
