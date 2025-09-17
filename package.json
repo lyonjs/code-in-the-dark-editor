@@ -14,7 +14,7 @@
     "ace-builds": "1.32.7",
     "classnames": "2.5.1",
     "framer-motion": "11.0.8",
-    "next": "14.1.2",
+    "next": "14.2.32",
     "query-string": "7.1.1",
     "react": "18.2.0",
     "react-ace": "10.1.0",
