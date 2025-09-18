@@ -10,6 +10,7 @@ import { Modal } from '../modal/Modal';
 import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
 import { Editor } from './Editor';
+import useInterval from '../../hooks/useInterval';
 
 const STREAK_TIMEOUT = 10 * 1000;
 
@@ -45,9 +46,15 @@ export const EditorView = () => {
     [streak, debouncedSearchTermChanged, updateHtml]
   );
 
-  // useInterval(async () => {
-  // TODO : Send code to DB to display it
-  // }, 15000);
+  useInterval(async () => {
+    if(entry?.template?.private) {
+      try {
+        await fetch(`/save?filename=${entry?.fullName}`, { method: 'POST', body: entry?.html });
+      } catch (error) {
+        console.error(`Failed to upload file: ${error}`);
+      }
+    }
+  }, 15000);
 
   useEffect(() => {
     if (isSubmitted) router.push('/thanks');
@@ -55,13 +62,20 @@ export const EditorView = () => {
 
   const finishHandler = useCallback(async () => {
     updateIsLoading(true);
-
-    // TODO : Push code in DB to validate it
-
+    if(entry?.template?.private) {
+      try {
+        await fetch(
+          `/save?filename=${entry?.template}/${entry?.fullName}-END`,
+          { method: 'POST', body: entry?.html }
+        );
+      } catch (error) {
+        console.error(`Failed to upload file: ${error}`);
+      }
+    }
     updateIsSubmitted(true);
     updateIsLoading(false);
     router.push('/thanks');
-  }, [updateIsLoading, updateIsSubmitted, router]);
+  }, [updateIsLoading, updateIsSubmitted, router, entry]);
 
   const powerModeShakeOnKeyDown = () => {
     if (!powerMode) {
