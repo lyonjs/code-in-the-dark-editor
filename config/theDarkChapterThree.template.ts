@@ -2,6 +2,7 @@ import { TemplateInformations } from './templates';
 
 export const TheDarkChapterThreeTemplate: TemplateInformations = {
   eventId: 1,
+  private: true,
   eventName: 'DevFest Nantes 2024',
   referenceImage: '/templates/the-dark-chapter/page-3.png',
   instructions: `
