@@ -11,7 +11,7 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "ace-builds": "1.32.7",
+    "ace-builds": "1.43.3",
     "classnames": "2.5.1",
     "framer-motion": "11.0.8",
     "next": "14.2.32",
