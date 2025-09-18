@@ -21,7 +21,7 @@
     "react-countdown": "^2.3.5",
     "react-dom": "18.2.0",
     "react-hook-form": "7.62.0",
-    "sass": "1.71.1",
+    "sass": "1.92.1",
     "swr": "1.3.0",
     "use-debounce": "7.0.1",
     "zustand": "4.5.7",
