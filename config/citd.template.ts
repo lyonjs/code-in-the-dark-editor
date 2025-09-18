@@ -2,6 +2,7 @@ import { TemplateInformations } from './templates';
 
 export const CitdTemplate: TemplateInformations = {
     eventId: 1,
+    private: true,
     eventName: 'Code In The Dark #2',
     referenceImage: '/templates/citd/page.jpg',
     instructions: `
