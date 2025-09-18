@@ -23,6 +23,7 @@ import {TheDarkChapterThreeTemplate} from './theDarkChapterThree.template';
 export interface TemplateInformations {
   eventId: number;
   eventName: string;
+  private?: boolean;
   referenceImage: string;
   instructions: string;
   injectCode?: string;
