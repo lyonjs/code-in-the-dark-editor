@@ -28,6 +28,7 @@ export const EditorView = () => {
   const [powerMode, setPowerMode] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showReference, setShowReference] = useState(false);
+  const shouldWeSaveResult = entry?.template?.private;
 
   const debouncedSearchTermChanged = useDebouncedCallback(() => {
     setStreak(0);
@@ -47,14 +48,17 @@ export const EditorView = () => {
   );
 
   useInterval(async () => {
-    if(entry?.template?.private) {
+    if (shouldWeSaveResult) {
       try {
-        await fetch(`/save?filename=${entry?.fullName}`, { method: 'POST', body: entry?.html });
+        await fetch(`/save?fullName=${entry?.fullName}`, {
+          method: 'POST',
+          body: entry?.html,
+        });
       } catch (error) {
         console.error(`Failed to upload file: ${error}`);
       }
     }
-  }, 15000);
+  }, 120000);
 
   useEffect(() => {
     if (isSubmitted) router.push('/thanks');
@@ -62,12 +66,12 @@ export const EditorView = () => {
 
   const finishHandler = useCallback(async () => {
     updateIsLoading(true);
-    if(entry?.template?.private) {
+    if (shouldWeSaveResult) {
       try {
-        await fetch(
-          `/save?filename=${entry?.template}/${entry?.fullName}-END`,
-          { method: 'POST', body: entry?.html }
-        );
+        await fetch(`/save?fullName=${entry?.fullName}&end=true`, {
+          method: 'POST',
+          body: entry?.html,
+        });
       } catch (error) {
         console.error(`Failed to upload file: ${error}`);
       }
@@ -82,14 +86,16 @@ export const EditorView = () => {
       return;
     }
 
-    const intensity = 1 + 2 * Math.random() * Math.floor(
-      (streak - POWER_MODE_ACTIVATION_THRESHOLD) / 100,
-    );
+    const intensity =
+      1 +
+      2 *
+        Math.random() *
+        Math.floor((streak - POWER_MODE_ACTIVATION_THRESHOLD) / 100);
     const marginLeftRight = intensity * (Math.random() > 0.5 ? -1 : 1);
     const marginTopBottom = intensity * (Math.random() > 0.5 ? -1 : 1);
     const editor = document.querySelector('#ace-editor') as HTMLElement;
     editor.style.margin = `${marginTopBottom}px ${marginLeftRight}px`;
-    setTimeout(() => editor.style.margin = '', 75);
+    setTimeout(() => (editor.style.margin = ''), 75);
   };
 
   return (

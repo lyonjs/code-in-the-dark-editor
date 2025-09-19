@@ -11,7 +11,7 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@vercel/blob": "2.0.0",
+    "@aws-sdk/client-s3": "3.892.0",
     "ace-builds": "1.32.7",
     "classnames": "2.5.1",
     "framer-motion": "11.0.8",
@@ -24,7 +24,9 @@
     "react-dom": "18.2.0",
     "react-hook-form": "7.29.0",
     "sass": "1.71.1",
+    "slugify": "1.6.6",
     "swr": "1.2.2",
+    "temporal-polyfill": "0.3.0",
     "use-debounce": "7.0.1",
     "zustand": "4.5.7",
     "zustand-persist": "0.4.0"

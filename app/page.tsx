@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 import styles from '../styles/register.module.scss';
 import { Tabs } from 'radix-ui';
+import slugify from 'slugify';
 
 export default function Page() {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function Page() {
     }
 
     updateIsLoading(true);
-    updateFullName(data.fullName);
+    updateFullName(slugify(data.fullName, { lower: true, strict: true, trim: true }));
     updateTemplate(isTrainningSession ? selectedTemplate : data.templateName);
     updateId(0);
     updateIsLoading(false);
