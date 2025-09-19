@@ -23,7 +23,7 @@
     "react-hook-form": "7.62.0",
     "sass": "1.92.1",
     "swr": "1.3.0",
-    "use-debounce": "7.0.1",
+    "use-debounce": "10.0.6",
     "zustand": "4.5.7",
     "zustand-persist": "0.4.0"
   },

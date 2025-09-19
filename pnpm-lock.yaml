@@ -45,8 +45,8 @@ importers:
         specifier: 1.3.0
         version: 1.3.0(react@18.3.1)
       use-debounce:
-        specifier: 7.0.1
-        version: 7.0.1(react@18.3.1)
+        specifier: 10.0.6
+        version: 10.0.6(react@18.3.1)
       zustand:
         specifier: 4.5.7
         version: 4.5.7(@types/react@18.3.24)(react@18.3.1)
@@ -1571,11 +1571,11 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  use-debounce@7.0.1:
-    resolution: {integrity: sha512-fOrzIw2wstbAJuv8PC9Vg4XgwyTLEOdq4y/Z3IhVl8DAE4svRcgyEUvrEXu+BMNgMoc3YND6qLT61kkgEKXh7Q==}
-    engines: {node: '>= 10.0.0'}
+  use-debounce@10.0.6:
+    resolution: {integrity: sha512-C5OtPyhAZgVoteO9heXMTdW7v/IbFI+8bSVKYCJrSmiWWCLsbUxiBSp4t9v0hNBTGY97bT72ydDIDyGSFWfwXg==}
+    engines: {node: '>= 16.0.0'}
     peerDependencies:
-      react: '>=16.8.0'
+      react: '*'
 
   use-sync-external-store@1.5.0:
     resolution: {integrity: sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==}
@@ -3297,7 +3297,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  use-debounce@7.0.1(react@18.3.1):
+  use-debounce@10.0.6(react@18.3.1):
     dependencies:
       react: 18.3.1
 
