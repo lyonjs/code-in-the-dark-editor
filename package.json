@@ -11,7 +11,7 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.892.0",
+    "@aws-sdk/client-s3": "3.893.0",
     "ace-builds": "1.43.3",
     "classnames": "2.5.1",
     "framer-motion": "11.18.2",
