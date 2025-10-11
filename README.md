@@ -5,7 +5,7 @@ This is a rewrite of the Coffescript version, it's coded in Next.js !
 ![localhost_3000_editor · 11 32am · 03-17](https://github.com/CruuzAzul/code-in-the-dark/assets/60877626/47f15452-0647-4f04-8927-f791a9b09f9d)
 
 ## Demo 🔗
-
+![logo-noir.png](../designs/2025/Logo/logo.png)
 ## Getting Started 🆕
 
 To set up your event have a look at the file called `config/templtes.ts` in this file you set up the reference image and the instruction. You can put your images in the public folder.

@@ -12,7 +12,7 @@ import styles from '../styles/register.module.scss';
 export default function Page() {
   const router = useRouter();
   const [selectedTemplate, setSelectedTemplate] = useState<TemplateName>(
-    TemplateName.THE_DARK_CHAPTER
+    TemplateName.ONCE_UPON_A_CODE
   );
   const { entry, updateFullName, updateId, updateIsLoading, updateTemplate } =
     useEntryStore();

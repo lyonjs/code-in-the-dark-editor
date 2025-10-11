@@ -1,4 +1,4 @@
-import { TheDarkChapterTemplate } from './theDarkChapter.template';
+import { OnceUponACodeTemplate } from './onceUponACode.template';
 
 export interface TemplateInformations {
   eventId: number;
@@ -11,7 +11,7 @@ export interface TemplateInformations {
 }
 
 export enum TemplateName {
-  THE_DARK_CHAPTER = 'THE_DARK_CHAPTER',
+  ONCE_UPON_A_CODE = 'ONCE_UPON_A_CODE',
 }
 
 export type TemplateNameList = keyof typeof TemplateName;
@@ -20,5 +20,5 @@ export const templatesDictionary: Record<
   TemplateNameList,
   TemplateInformations
 > = {
-  THE_DARK_CHAPTER: TheDarkChapterTemplate,
+  ONCE_UPON_A_CODE: OnceUponACodeTemplate,
 };

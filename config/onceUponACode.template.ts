@@ -1,9 +1,9 @@
 import { TemplateInformations } from './templates';
 
-export const TheDarkChapterTemplate: TemplateInformations = {
+export const OnceUponACodeTemplate: TemplateInformations = {
   eventId: 1,
-  eventName: 'DevFest Nantes 2024',
-  referenceImage: '/templates/theDarkChapter/theDarkChapter.png',
+  eventName: 'DevFest Nantes 2025',
+  referenceImage: '/templates/onceUponACode/onceUponACode.png',
   instructions: `
 --- The rules ---
 
@@ -22,8 +22,8 @@ Good luck and most important of all : have fun ! 🥳
 ⚠️ All images have straight borders, no radius ! 
 And the blood already has the light shadow.
 
-./templates/theDarkChapter/logo.png (w 655 x h 228)
-./templates/theDarkChapter/blood.png (w 1512 x h 315)
+./templates/onceUponACode/logo.png (w 655 x h 228)
+./templates/onceUponACode/blood.png (w 1512 x h 315)
 
 --- Font ---
 
