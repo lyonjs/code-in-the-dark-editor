@@ -3,6 +3,55 @@
     width: 300px;
     height: auto;
   }
+
+  .trainingToggle {
+    display: flex;
+    gap: 2rem;
+
+    input {
+      width: min-content;
+    }
+  }
+
+  fieldset {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    gap: 2rem;
+  }
+
+  .tabsRoot {
+    width: 100%;
+  }
+
+  .tabsList {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tabsTrigger {
+    display: block;
+    flex: 1;
+    font-family: "Press Start 2P", sans-serif;
+  }
+
+  .tabsTrigger[aria-selected="false"] {
+    background: #000;
+    color: #fff;
+    border: 2px dashed currentColor;
+  }
+
+  .tabsContent {
+    display: flex;
+    justify-content: center;
+  }
+
+  .error {
+    color: #ff2400;
+  }
 }
 
 .isWizz {
