@@ -9,7 +9,7 @@ interface Tree {
   };
 }
 
-const BUCKET_URL = process.env.NEXT_PUBLIC_BUCKET_URL || '';
+const BUCKET_URL = process.env.NEXT_PUBLIC_BUCKET_URL || 'https://be78568a-a70a-4ac1-9a6a-c9fff8c5eda8.svc.edge.scw.cloud';
 
 export default function FilesPage() {
   const [tree, setTree] = useState<Tree>({});
