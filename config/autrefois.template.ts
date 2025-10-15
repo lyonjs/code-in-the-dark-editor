@@ -33,14 +33,14 @@ SVG Book Open for Logo:
 
 --- Colors ---
 
-yellow: #ffb900;
-orange: #f54a00;
-border: #fe9a00; with opacity 30%
-background: #2f0d68; with opacity 60%
-pill: #ad46ff; with opacity 20%
-pill-border: #c27aff; with opacity 30%
-description: #fef3c6;
-"collection": #e17100;
+Background principal - #0a0118 - opacity: 1
+Violet foncé - #2e1065 - opacity: 0.60 (gradient)
+Indigo foncé - #1e1b4b - opacity: 0.40 (gradient)
+Violet moyen - #4c1d95 - opacity: 0.60 (gradient) / 0.20 (badge) / 0.05 (glow)
+Or principal - #fbbf24 - opacity: 1
+Or clair - #fcd34d - opacity: 0.80 (text) / 0.60 (stats)
+Orange dégradé - #ea580c - opacity: 1
+Or accent - #d97706 - opacity: 0.70 (sous-titre) / 0.50 (border) / 0.30 (separator) / 0.10 (hover)
 `,
     showPreview: true,
     demoMode: true,
