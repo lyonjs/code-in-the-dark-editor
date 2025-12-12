@@ -15,7 +15,7 @@
     "ace-builds": "1.43.3",
     "classnames": "2.5.1",
     "framer-motion": "11.18.2",
-    "next": "15.5.7",
+    "next": "15.5.8",
     "query-string": "7.1.3",
     "radix-ui": "1.4.3",
     "react": "18.3.1",
