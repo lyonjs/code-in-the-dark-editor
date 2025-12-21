@@ -2,7 +2,7 @@
 
 This is a rewrite of the Coffescript version, it's coded in Next.js !
 
-![localhost_3000_editor · 11 32am · 03-17](https://github.com/CruuzAzul/code-in-the-dark/assets/60877626/47f15452-0647-4f04-8927-f791a9b09f9d)
+![localhost_3000_editor · 11 32am · 03-17](https://github.com/mickaelalvs/code-in-the-dark/assets/60877626/47f15452-0647-4f04-8927-f791a9b09f9d)
 
 ## Demo 🔗
 
