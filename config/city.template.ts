@@ -1,10 +1,10 @@
 import { TemplateInformations } from './templates';
 
 export const CityTemplate: TemplateInformations = {
-    eventId: 1,
-    eventName: 'Code In The Dark #2',
-    referenceImage: '/templates/city/page.jpg',
-    instructions: `
+  eventId: 1,
+  eventName: 'Code In The Dark #2',
+  referenceImage: '/templates/city/page.jpg',
+  instructions: `
 --- The rules ---
 
 1) No previews - of either results or assets!
@@ -34,6 +34,6 @@ blue : #D2EAF4
 orange : #EFC48F
 red : #EECFCD
 `,
-    showPreview: true,
-    demoMode: true,
+  showPreview: true,
+  demoMode: true,
 };

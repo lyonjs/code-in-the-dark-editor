@@ -1,11 +1,11 @@
 import { TemplateInformations } from './templates';
 
 export const CitdTemplate: TemplateInformations = {
-    eventId: 1,
-    private: true,
-    eventName: 'Code In The Dark #2',
-    referenceImage: '/templates/citd/page.jpg',
-    instructions: `
+  eventId: 1,
+  private: true,
+  eventName: 'Code In The Dark #2',
+  referenceImage: '/templates/citd/page.jpg',
+  instructions: `
 --- The rules ---
 
 1) No previews - of either results or assets!
@@ -34,6 +34,6 @@ Good luck and most important of all : have fun ! 🥳
 black: #000000
 white: #FFFFFF
 `,
-    showPreview: true,
-    demoMode: true,
+  showPreview: true,
+  demoMode: true,
 };

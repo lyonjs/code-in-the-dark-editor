@@ -45,8 +45,8 @@ export default function FilesPage() {
                       <li key={filename} className={styles.li}>
                         <a
                           href={`${BUCKET_URL}/${date}/${name}/${filename}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          target='_blank'
+                          rel='noopener noreferrer'
                           className={styles.link}
                         >
                           {filename}

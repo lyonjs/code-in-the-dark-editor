@@ -11,7 +11,7 @@ const {
   S3_ACCESS_KEY,
   S3_ACCESS_KEY_ID,
   S3_ENDPOINT,
-  S3_BUCKET_NAME
+  S3_BUCKET_NAME,
 } = process.env;
 
 export async function POST(request: Request): Promise<NextResponse> {
@@ -30,7 +30,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     },
     endpoint: S3_ENDPOINT,
     region: S3_REGION,
-    forcePathStyle: true
+    forcePathStyle: true,
   });
 
   const arrayBuffer = await request.arrayBuffer();
@@ -91,7 +91,9 @@ export async function GET() {
     return NextResponse.json({ tree });
   } catch (err) {
     console.error('Erreur listage bucket', err);
-    return NextResponse.json({ error: 'Failed to list files' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to list files' },
+      { status: 500 }
+    );
   }
 }
-

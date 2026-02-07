@@ -12,23 +12,24 @@ export default function Page() {
   const { entry, updateIsSubmitted, clear } = useEntryStore();
   const router = useRouter();
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [iframeDocument, setIframeDocument] = useState(iframeRef?.current?.contentDocument);
+  const [iframeDocument, setIframeDocument] = useState(
+    iframeRef?.current?.contentDocument
+  );
   const [showReference, setShowReference] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
-
   useEffect(() => {
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'b') {
-          setShowButton(!showButton);
-        }
-      };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'b') {
+        setShowButton(!showButton);
+      }
+    };
 
-      iframeDocument?.addEventListener('keydown', handleKeyDown);
+    iframeDocument?.addEventListener('keydown', handleKeyDown);
 
-      return () => {
-        iframeDocument?.removeEventListener('keydown', handleKeyDown);
-      };
+    return () => {
+      iframeDocument?.removeEventListener('keydown', handleKeyDown);
+    };
   }, [iframeDocument, showButton]);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function Page() {
         <img
           src={entry?.template?.referenceImage}
           className={styles.referenceImage}
-          alt="Image de référence"
+          alt='Image de référence'
         />
       </Modal>
       {showButton ? (

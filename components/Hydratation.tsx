@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useEntryStore } from "../hooks/useEntryStore";
+import { useEffect } from 'react';
+import { useEntryStore } from '../hooks/useEntryStore';
 
 const Hydration = () => {
   useEffect(() => {

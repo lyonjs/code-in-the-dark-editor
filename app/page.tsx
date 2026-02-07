@@ -26,15 +26,19 @@ export default function Page() {
 
   const onSubmit = async (data: { [x: string]: any }) => {
     setError(null);
-    if(!isTrainningSession) {
-      const isValidTemplate = Object.keys(templatesDictionary).includes(data.templateName)
-      if(!isValidTemplate) {
+    if (!isTrainningSession) {
+      const isValidTemplate = Object.keys(templatesDictionary).includes(
+        data.templateName
+      );
+      if (!isValidTemplate) {
         return setError('Invalid template name');
       }
     }
 
     updateIsLoading(true);
-    updateFullName(slugify(data.fullName, { lower: true, strict: true, trim: true }));
+    updateFullName(
+      slugify(data.fullName, { lower: true, strict: true, trim: true })
+    );
     updateTemplate(isTrainningSession ? selectedTemplate : data.templateName);
     updateId(0);
     updateIsLoading(false);
@@ -61,7 +65,11 @@ export default function Page() {
           required
         />
         <h3>Select a mode</h3>
-        <Tabs.Root className={styles.tabsRoot} defaultValue='training' onValueChange={value => setIsTrainningSession(value === 'training')}>
+        <Tabs.Root
+          className={styles.tabsRoot}
+          defaultValue='training'
+          onValueChange={(value) => setIsTrainningSession(value === 'training')}
+        >
           <Tabs.List
             className={styles.tabsList}
             aria-label='Manage your account'

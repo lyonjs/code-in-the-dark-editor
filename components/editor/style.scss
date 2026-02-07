@@ -3,10 +3,10 @@
   --comment-color: #0dfdff;
   --text-color: #f9ff00;
 
-  --power-mode-keyword-color: #00DDFF;
-  --power-mode-comment-color: #00FF79;
-  --power-mode-text-color: #F9FF00;
-  --power-mode-attribute-color: #8194F4;
+  --power-mode-keyword-color: #00ddff;
+  --power-mode-comment-color: #00ff79;
+  --power-mode-text-color: #f9ff00;
+  --power-mode-attribute-color: #8194f4;
 }
 
 .ace-vibrant-ink {
@@ -15,8 +15,7 @@
   .ace_fold,
   .ace_entity.ace_name.ace_function,
   .ace_support.ace_function,
-  .ace_variable
-  {
+  .ace_variable {
     color: var(--keyword-color);
   }
 
@@ -41,7 +40,7 @@
   }
 }
 
-[class*="powerMode"] .ace-vibrant-ink {
+[class*='powerMode'] .ace-vibrant-ink {
   .ace_keyword,
   .ace_meta,
   .ace_fold,

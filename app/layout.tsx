@@ -1,6 +1,6 @@
 import '../style.scss';
 import { Layout } from '../components/layout/Layout';
-import Hydration from "../components/Hydratation";
+import Hydration from '../components/Hydratation';
 
 export default function RootLayout({
   children,

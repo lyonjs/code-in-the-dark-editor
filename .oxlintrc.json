@@ -1,0 +1,9 @@
+{
+  "plugins": ["react", "typescript", "import", "jsx-a11y", "nextjs"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "rules": {}
+}
