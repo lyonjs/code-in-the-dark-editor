@@ -1,33 +1,85 @@
-## Code in the Dark - Next.js rewrite 🚀
+# Code in the Dark - Editor
 
-This is a rewrite of the Coffescript version, it's coded in Next.js !
+A modern, open-source editor for hosting [Code in the Dark](http://codeinthedark.com/) events, built with Next.js.
 
-![localhost_3000_editor · 11 32am · 03-17](https://github.com/mickaelalvs/code-in-the-dark/assets/60877626/47f15452-0647-4f04-8927-f791a9b09f9d)
+Code in the Dark is a front-end competition where contestants implement a webpage from a screenshot — without any preview, DevTools, or measurement tools. Once time runs out, the audience votes for the best result.
 
-## Demo 🔗
+This project is a rewrite of the [original CoffeeScript editor](https://github.com/codeinthedark/codeinthedark.github.io) in Next.js, inspired by the [React rewrite by vLX42](https://github.com/vLX42/code-in-the-dark).
 
-## Getting Started 🆕
+![Editor screenshot](https://github.com/mickaelalvs/code-in-the-dark/assets/60877626/47f15452-0647-4f04-8927-f791a9b09f9d)
 
-To set up your event have a look at the file called `config/templtes.ts` in this file you set up the reference image and the instruction. You can put your images in the public folder.
+## Features
 
-First, run the development server:
+- **Registration** — Participants enter their name and join a session
+- **Code editor** — Full-screen HTML/CSS editor with syntax highlighting (Ace)
+- **Countdown timer** — Configurable time limit per round
+- **Live preview** — Optional preview toggle per template
+- **Reference image** — Accessible during the round for participants
+- **Admin dashboard** — Browse and download all submissions
+- **S3 storage** — Submissions are saved to any S3-compatible backend
+- **Multiple templates** — Pre-configured templates with reference images and instructions
+- **Training & competition modes** — Open practice or password-protected sessions
+
+## Getting started
+
+### Prerequisites
+
+- Node.js 20+
+- [pnpm](https://pnpm.io/)
+- An S3-compatible storage bucket (AWS, Scaleway, MinIO, etc.)
+
+### Installation
+
+```bash
+pnpm install
+```
+
+### Environment variables
+
+Copy `.env.example` to `.env.local` and fill in your S3 credentials:
+
+```
+S3_ACCESS_KEY_ID=
+S3_ACCESS_KEY=
+S3_REGION=
+S3_ENDPOINT=
+S3_BUCKET_NAME=
+NEXT_PUBLIC_BUCKET_URL=
+```
+
+### Configuration
+
+Edit `config/templates.ts` to set up your event. Each template defines:
+
+- `eventName` — Display name for the event
+- `referenceImage` — Path to the target screenshot (place images in `public/templates/`)
+- `instructions` — HTML instructions shown to participants
+- `showPreview` — Whether participants can preview their result
+- `private` — Whether the template requires a password to access
+- `demoMode` — Enable for demonstration purposes
+
+### Run
 
 ```bash
 pnpm dev
 ```
 
-### Basic usage
+## Hosting an event
 
-You will be greeted with a form if you access the root of the site. Here the participants can put in there name. They will now be sent to the editor.
+1. **Prepare your templates** — Add reference images to `public/templates/` and configure them in `config/templates.ts`
+2. **Deploy the app** — Any platform that supports Next.js (Vercel, Docker, etc.)
+3. **Set up S3** — Configure your bucket and environment variables
+4. **Share the URL** — Participants register at the root URL and enter the editor
+5. **Use the admin view** — Access `/admin-view` to browse submissions after the round
 
-### Warning
+For the best experience, have participants mirror their screen to an external monitor facing the audience.
 
-There has been no consideration about security and a bright person could maybe easily find a way to cheat 😅
+## Credits
 
-### Credit
+- [Code in the Dark](https://github.com/codeinthedark/codeinthedark.github.io) — The original competition concept and editor
+- [vLX42/code-in-the-dark](https://github.com/vLX42/code-in-the-dark) — React rewrite that inspired this project
+- [MHase/code-in-the-dark-uber-editor](https://github.com/MHase/code-in-the-dark-uber-editor) — CSS and rewrite ideas
 
-Big thanks to https://github.com/vLX42/code-in-the-dark which enabled me to use some of the code to reproduce this project 🙏🏼
+## License
 
-https://github.com/codeinthedark/codeinthedark.github.io More about the Code In The Dark concept
-
-https://github.com/MHase/code-in-the-dark-uber-editor/tree/develop/ For some of the CSS and the idea to do a rewrite in React
+See [LICENSE](LICENSE) for details.
