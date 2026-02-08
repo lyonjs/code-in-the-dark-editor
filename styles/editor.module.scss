@@ -18,7 +18,7 @@ $spacing: 20px;
     padding: 20px;
     font-size: 40px;
     color: #fff;
-    background: transparentize(#3a9364, 0.25);
+    background: rgba(58, 147, 100, 0.75);
 
     &:hover {
       cursor: pointer;
@@ -84,7 +84,7 @@ $spacing: 20px;
   }
 
   .editorViewNametag {
-    background: transparentize(#0df, 0.25);
+    background: rgba(0, 221, 255, 0.75);
   }
 }
 
