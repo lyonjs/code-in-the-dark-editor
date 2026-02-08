@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback, Suspense } from 'react';
-import { useDebouncedCallback } from 'use-debounce';
+import { useDebounceCallback, useInterval } from 'usehooks-ts';
 import { useEntryStore } from '../../hooks/useEntryStore';
 
 import styles from '../../styles/editor.module.scss';
@@ -10,7 +10,6 @@ import { Modal } from '../modal/Modal';
 import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
 import { Editor } from './Editor';
-import useInterval from '../../hooks/useInterval';
 
 const STREAK_TIMEOUT = 10 * 1000;
 
@@ -30,7 +29,7 @@ export const EditorView = () => {
   const [showReference, setShowReference] = useState(false);
   const shouldWeSaveResult = entry?.template?.private;
 
-  const debouncedSearchTermChanged = useDebouncedCallback(() => {
+  const debouncedSearchTermChanged = useDebounceCallback(() => {
     setStreak(0);
     setPowerMode(false);
   }, STREAK_TIMEOUT);
