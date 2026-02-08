@@ -121,7 +121,7 @@ export default function Page() {
             </h2>
           </FadeIn>
           <div className={styles.gallery} role='list'>
-            {[1, 2, 4, 5].map((n, i) => (
+            {[2, 3, 4, 5].map((n, i) => (
               <FadeIn key={n} delay={i * 0.1}>
                 <div className={styles.galleryItem} role='listitem'>
                   <Image
