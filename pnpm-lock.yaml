@@ -12,8 +12,8 @@ importers:
         specifier: 3.893.0
         version: 3.893.0
       ace-builds:
-        specifier: 1.43.3
-        version: 1.43.3
+        specifier: 1.43.6
+        version: 1.43.6
       classnames:
         specifier: 2.5.1
         version: 2.5.1
@@ -1524,8 +1524,8 @@ packages:
   '@types/uuid@9.0.8':
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
 
-  ace-builds@1.43.3:
-    resolution: {integrity: sha512-MCl9rALmXwIty/4Qboijo/yNysx1r6hBTzG+6n/TiOm5LFhZpEvEIcIITPFiEOEFDfgBOEmxu+a4f54LEFM6Sg==}
+  ace-builds@1.43.6:
+    resolution: {integrity: sha512-L1ddibQ7F3vyXR2k2fg+I8TQTPWVA6CKeDQr/h2+8CeyTp3W6EQL8xNFZRTztuP8xNOAqL3IYPqdzs31GCjDvg==}
 
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
@@ -3755,7 +3755,7 @@ snapshots:
 
   '@types/uuid@9.0.8': {}
 
-  ace-builds@1.43.3: {}
+  ace-builds@1.43.6: {}
 
   aria-hidden@1.2.6:
     dependencies:
@@ -3997,7 +3997,7 @@ snapshots:
 
   react-ace@14.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
-      ace-builds: 1.43.3
+      ace-builds: 1.43.6
       diff-match-patch: 1.0.5
       lodash.get: 4.4.2
       lodash.isequal: 4.5.0
