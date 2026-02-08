@@ -16,7 +16,7 @@ export function RegistrationForm() {
   const [selectedTemplate, setSelectedTemplate] = useState<TemplateName>(
     TemplateName.CITD
   );
-  const [isTrainningSession, setIsTrainningSession] = useState<boolean>(false);
+  const [isTrainningSession, setIsTrainningSession] = useState<boolean>(true);
   const { entry, updateFullName, updateId, updateIsLoading, updateTemplate } =
     useEntryStore();
   const { register, handleSubmit, formState } = useForm({
