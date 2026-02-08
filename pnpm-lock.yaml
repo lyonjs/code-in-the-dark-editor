@@ -51,13 +51,13 @@ importers:
         specifier: 1.6.6
         version: 1.6.6
       swr:
-        specifier: 1.3.0
-        version: 1.3.0(react@19.2.4)
+        specifier: 2.4.0
+        version: 2.4.0(react@19.2.4)
       temporal-polyfill:
         specifier: 0.3.0
         version: 0.3.0
       usehooks-ts:
-        specifier: ^3.1.1
+        specifier: 3.1.1
         version: 3.1.1(react@19.2.4)
       zustand:
         specifier: 4.5.7
@@ -1556,6 +1556,10 @@ packages:
     resolution: {integrity: sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==}
     engines: {node: '>=0.10'}
 
+  dequal@2.0.3:
+    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
+    engines: {node: '>=6'}
+
   detect-libc@1.0.3:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
@@ -1850,10 +1854,10 @@ packages:
       babel-plugin-macros:
         optional: true
 
-  swr@1.3.0:
-    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
+  swr@2.4.0:
+    resolution: {integrity: sha512-sUlC20T8EOt1pHmDiqueUWMmRRX03W7w5YxovWX7VR2KHEPCTMly85x05vpkP5i6Bu4h44ePSMD9Tc+G2MItFw==}
     peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   temporal-polyfill@0.3.0:
     resolution: {integrity: sha512-qNsTkX9K8hi+FHDfHmf22e/OGuXmfBm9RqNismxBrnSmZVJKegQ+HYYXT+R7Ha8F/YSm2Y34vmzD4cxMu2u95g==}
@@ -1902,6 +1906,11 @@ packages:
 
   use-sync-external-store@1.5.0:
     resolution: {integrity: sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  use-sync-external-store@1.6.0:
+    resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -3784,6 +3793,8 @@ snapshots:
 
   decode-uri-component@0.2.2: {}
 
+  dequal@2.0.3: {}
+
   detect-libc@1.0.3:
     optional: true
 
@@ -4120,9 +4131,11 @@ snapshots:
       client-only: 0.0.1
       react: 19.2.4
 
-  swr@1.3.0(react@19.2.4):
+  swr@2.4.0(react@19.2.4):
     dependencies:
+      dequal: 2.0.3
       react: 19.2.4
+      use-sync-external-store: 1.6.0(react@19.2.4)
 
   temporal-polyfill@0.3.0:
     dependencies:
@@ -4159,6 +4172,10 @@ snapshots:
       '@types/react': 19.2.13
 
   use-sync-external-store@1.5.0(react@19.2.4):
+    dependencies:
+      react: 19.2.4
+
+  use-sync-external-store@1.6.0(react@19.2.4):
     dependencies:
       react: 19.2.4
 
