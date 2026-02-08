@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { Exclamation } from './Exclamation';
 import { Timer } from './Timer';
 import styles from './style.module.scss';
-import { motion } from 'framer-motion';
 
 const EXCLAMATIONS = [
   'Super!',

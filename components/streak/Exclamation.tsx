@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 type props = { message: string };
 export const Exclamation = ({ message }: props) => {

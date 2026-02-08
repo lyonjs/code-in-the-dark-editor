@@ -1,0 +1,219 @@
+$accent: #3a9364;
+$max-width: 900px;
+$section-padding: 4rem 2rem;
+
+.landing {
+  width: 100%;
+}
+
+/* ── Hero ───────────────────────────────────────────── */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $section-padding;
+  text-align: center;
+  background: url('/gallery/event-photo-3.jpg') center / cover no-repeat;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.heroLogo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.heroTitle {
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  color: $accent;
+  text-shadow: 0 0 20px rgba($accent, 0.6);
+  margin-bottom: 1rem;
+}
+
+.heroTagline {
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  color: #ccc;
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.heroCta {
+  display: inline-block;
+  padding: 14px 28px;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 12px;
+  color: white;
+  background-color: $accent;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/* ── Section commune ────────────────────────────────── */
+.section {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $section-padding;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: $accent;
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  margin-bottom: 2rem;
+}
+
+/* ── What is Code in the Dark ───────────────────────── */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.highlightCard {
+  border: 1px solid rgba($accent, 0.3);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: rgba($accent, 0.04);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s;
+
+  &:hover {
+    border-color: $accent;
+    box-shadow: 0 0 20px rgba($accent, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .highlightIcon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  strong {
+    display: block;
+    color: $accent;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  p {
+    font-size: 0.7rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin: 0;
+  }
+}
+
+/* ── Galerie ────────────────────────────────────────── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.galleryItem {
+  border: 2px solid $accent;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+}
+
+/* ── Vidéo ──────────────────────────────────────────── */
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid $accent;
+    background-color: #000;
+  }
+}
+
+/* ── Règles ─────────────────────────────────────────── */
+.rules {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 1.2rem;
+
+  li {
+    margin-bottom: 1.2rem;
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: #ccc;
+
+    &::marker {
+      color: $accent;
+      font-weight: bold;
+    }
+
+    strong {
+      color: $accent;
+    }
+  }
+}
+
+/* ── Register section ───────────────────────────────── */
+.registerSection {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $section-padding;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer {
+  border-top: 2px solid $accent;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footerLogo {
+  width: 120px;
+  height: auto;
+}
+
+.footerText {
+  font-size: 0.65rem;
+  color: #888;
+}
