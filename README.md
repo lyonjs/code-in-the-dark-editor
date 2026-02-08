@@ -6,8 +6,6 @@ Code in the Dark is a front-end competition where contestants implement a webpag
 
 This project is a rewrite of the [original CoffeeScript editor](https://github.com/codeinthedark/codeinthedark.github.io) in Next.js, inspired by the [React rewrite by vLX42](https://github.com/vLX42/code-in-the-dark).
 
-![Editor screenshot](https://github.com/mickaelalvs/code-in-the-dark/assets/60877626/47f15452-0647-4f04-8927-f791a9b09f9d)
-
 ## Features
 
 - **Registration** — Participants enter their name and join a session
