@@ -89,8 +89,8 @@ export default function Page() {
               },
               {
                 icon: '\u{23F1}\uFE0F',
-                title: '15 Minutes',
-                text: 'You have exactly 15 minutes to reproduce the reference image as closely as possible.',
+                title: '20 Minutes',
+                text: 'You have exactly 20 minutes to reproduce the reference image as closely as possible.',
               },
               {
                 icon: '\u{1F5F3}\uFE0F',
@@ -180,7 +180,7 @@ export default function Page() {
                 webpage to reproduce.
               </li>
               <li>
-                You have <strong>15 minutes</strong> to write HTML &amp; CSS
+                You have <strong>20 minutes</strong> to write HTML &amp; CSS
                 from scratch.
               </li>
               <li>
