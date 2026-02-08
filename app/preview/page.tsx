@@ -12,6 +12,7 @@ export default function Page() {
   const { entry, updateIsSubmitted, clear } = useEntryStore();
   const router = useRouter();
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [snapshot] = useState(() => (entry ? { ...entry } : null));
   const [iframeDocument, setIframeDocument] = useState(
     iframeRef?.current?.contentDocument
   );
@@ -33,20 +34,23 @@ export default function Page() {
   }, [iframeDocument, showButton]);
 
   useEffect(() => {
-    if (entry?.template?.showPreview && entry?.html) {
+    if (snapshot?.template?.showPreview && snapshot?.html) {
       const doc = iframeRef?.current?.contentDocument;
       doc?.open();
-      doc?.write(entry.template.injectCode || '' + entry?.html);
+      doc?.write(snapshot.template.injectCode || '' + snapshot?.html);
       doc?.close();
       setIframeDocument(doc);
+
+      clear();
+      updateIsSubmitted(false);
     }
-  }, [entry?.html, entry?.template?.injectCode, entry?.template?.showPreview]);
+  }, [snapshot, clear, updateIsSubmitted]);
 
   return (
     <>
       <Modal show={showReference} setShow={setShowReference}>
         <img
-          src={entry?.template?.referenceImage}
+          src={snapshot?.template?.referenceImage}
           className={styles.referenceImage}
           alt='Image de référence'
         />
@@ -55,7 +59,6 @@ export default function Page() {
         <div className={styles.backButton}>
           <Button
             onClick={() => {
-              updateIsSubmitted(false);
               router.push('/editor');
             }}
             className={''}
@@ -64,9 +67,6 @@ export default function Page() {
           </Button>
           <Button
             onClick={() => {
-              localStorage.removeItem('root');
-              clear();
-              updateIsSubmitted(false);
               router.push('/');
             }}
             className={''}
@@ -80,10 +80,12 @@ export default function Page() {
         <div
           onClick={() => setShowReference(true)}
           className={styles.editorViewReferenceImage}
-          style={{ backgroundImage: `url(${entry?.template?.referenceImage})` }}
+          style={{
+            backgroundImage: `url(${snapshot?.template?.referenceImage})`,
+          }}
         />
       </div>
-      {entry?.template?.showPreview && (
+      {snapshot?.template?.showPreview && (
         <iframe ref={iframeRef} className={styles.resultPreview} />
       )}
     </>
