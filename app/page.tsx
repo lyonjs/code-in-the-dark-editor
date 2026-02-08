@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     title: 'Code in the Dark — Front-end Competition Without Preview',
     description:
       'A front-end coding competition where you build a webpage without seeing the result. No devtools, no live reload — just your skills.',
-    images: ['/gallery/event-photo-3.jpg'],
     type: 'website',
   },
   twitter: {
@@ -24,7 +23,6 @@ export const metadata: Metadata = {
     title: 'Code in the Dark',
     description:
       'A front-end coding competition where you build a webpage without seeing the result.',
-    images: ['/gallery/event-photo-3.jpg'],
   },
   keywords: [
     'Code in the Dark',

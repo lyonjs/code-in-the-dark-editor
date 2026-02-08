@@ -52,7 +52,7 @@ export default function Page() {
         <img
           src={snapshot?.template?.referenceImage}
           className={styles.referenceImage}
-          alt='Image de référence'
+          alt='Reference image'
         />
       </Modal>
       {showButton ? (
@@ -63,7 +63,7 @@ export default function Page() {
             }}
             className={''}
           >
-            Retour à l&apos;IDE
+            Back to editor
           </Button>
           <Button
             onClick={() => {
@@ -71,7 +71,7 @@ export default function Page() {
             }}
             className={''}
           >
-            Reset l&apos;éditeur
+            Reset editor
           </Button>
         </div>
       ) : null}

@@ -110,7 +110,7 @@ export const EditorView = () => {
           <img
             src={entry.template.referenceImage}
             className={styles.referenceImage}
-            alt='Image de référence'
+            alt='Reference image'
           />
         ) : null}
       </Modal>
