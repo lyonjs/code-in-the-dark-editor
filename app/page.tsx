@@ -61,7 +61,7 @@ export default function Page() {
         </HeroStagger>
         <HeroStagger index={2}>
           <a href='#register' className={styles.heroCta} role='button'>
-            Register Now
+            Start Now
           </a>
         </HeroStagger>
       </section>
