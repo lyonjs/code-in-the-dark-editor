@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useCallback, Suspense } from 'react';
 import { useDebounceCallback, useInterval } from 'usehooks-ts';
 import { useEntryStore } from '../../hooks/useEntryStore';
+import { useEditorModeStore } from '../../hooks/useEditorModeStore';
 
 import styles from '../../styles/editor.module.scss';
 import { useRouter } from 'next/navigation';
@@ -14,6 +15,7 @@ import { Editor } from './Editor';
 const STREAK_TIMEOUT = 10 * 1000;
 
 const POWER_MODE_ACTIVATION_THRESHOLD = 200;
+const ULTRA_MODE_ACTIVATION_THRESHOLD = 500;
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
@@ -23,8 +25,10 @@ export const EditorView = () => {
   const router = useRouter();
   const { entry, updateHtml, isSubmitted, updateIsSubmitted, updateIsLoading } =
     useEntryStore();
+  const { setPowerMode: setStorePowerMode, setUltraMode: setStoreUltraMode, reset: resetStoreMode } = useEditorModeStore();
   const [streak, setStreak] = useState(0);
   const [powerMode, setPowerMode] = useState(false);
+  const [ultraMode, setUltraMode] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showReference, setShowReference] = useState(false);
   const shouldWeSaveResult = entry?.template?.private;
@@ -32,7 +36,9 @@ export const EditorView = () => {
   const resetStreak = useCallback(() => {
     setStreak(0);
     setPowerMode(false);
-  }, []);
+    setUltraMode(false);
+    resetStoreMode();
+  }, [resetStoreMode]);
 
   const debouncedSearchTermChanged = useDebounceCallback(
     resetStreak,
@@ -44,6 +50,11 @@ export const EditorView = () => {
       setStreak(streak + 1);
       if (streak === POWER_MODE_ACTIVATION_THRESHOLD) {
         setPowerMode(true);
+        setStorePowerMode(true);
+      }
+      if (streak === ULTRA_MODE_ACTIVATION_THRESHOLD) {
+        setUltraMode(true);
+        setStoreUltraMode(true);
       }
       debouncedSearchTermChanged();
       updateHtml(newValue);
@@ -90,11 +101,14 @@ export const EditorView = () => {
       return;
     }
 
+    const threshold = ultraMode
+      ? ULTRA_MODE_ACTIVATION_THRESHOLD
+      : POWER_MODE_ACTIVATION_THRESHOLD;
     const intensity =
-      1 +
+      (ultraMode ? 2 : 1) +
       2 *
-        Math.random() *
-        Math.floor((streak - POWER_MODE_ACTIVATION_THRESHOLD) / 100);
+      Math.random() *
+      Math.floor((streak - threshold) / 100);
     const marginLeftRight = intensity * (Math.random() > 0.5 ? -1 : 1);
     const marginTopBottom = intensity * (Math.random() > 0.5 ? -1 : 1);
     const editor = document.querySelector('#ace-editor') as HTMLElement;
@@ -104,7 +118,7 @@ export const EditorView = () => {
 
   return (
     <div
-      className={`${styles.editorView} ${powerMode && styles.powerModeOuter}`}
+      className={`${styles.editorView} ${powerMode && styles.powerModeOuter} ${ultraMode && styles.ultraModeOuter}`}
       onKeyDown={powerModeShakeOnKeyDown}
     >
       <Modal show={showInstructions} setShow={setShowInstructions}>
@@ -119,9 +133,15 @@ export const EditorView = () => {
           />
         ) : null}
       </Modal>
-      <Streak streak={streak} powerMode={powerMode} />
+      <Streak streak={streak} powerMode={powerMode} ultraMode={ultraMode} />
       <div
-        className={powerMode ? styles.backgroundPowerMode : styles.background}
+        className={
+          ultraMode
+            ? styles.backgroundUltraMode
+            : powerMode
+              ? styles.backgroundPowerMode
+              : styles.background
+        }
       />
 
       <Suspense fallback={<Loading />}>

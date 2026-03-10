@@ -1,6 +1,7 @@
 $spacing: 20px;
 
 .editorView {
+  --timer-color: #4effa1;
   height: calc(100vh - 10px);
   position: relative;
   font-family: 'Press Start 2P', cursive;
@@ -67,6 +68,7 @@ $spacing: 20px;
 }
 
 .powerModeOuter {
+  --timer-color: #0df;
   :global(.button),
   :global(.counter) {
     background-color: rgba(0, 221, 255, 0.75);
@@ -77,14 +79,36 @@ $spacing: 20px;
     li {
       color: #0df;
     }
-
-    :global(.TimerInner) {
-      background-color: #0df;
-    }
   }
 
   .editorViewNametag {
     background: rgba(0, 221, 255, 0.75);
+  }
+}
+
+.ultraModeOuter {
+  --timer-color: #f80;
+  :global(.button),
+  :global(.counter) {
+    background-color: rgba(255, 136, 0, 0.75);
+    animation: ultra-vibrate 0.12s ease-in-out infinite;
+  }
+
+  :global(.streak) {
+    animation: ultra-vibrate 0.12s ease-in-out infinite;
+    h2,
+    li {
+      color: #f80;
+    }
+  }
+
+  .editorViewNametag {
+    background: rgba(255, 136, 0, 0.75);
+    animation: ultra-vibrate 0.12s ease-in-out infinite;
+  }
+
+  .editorViewReference {
+    animation: ultra-vibrate 0.12s ease-in-out infinite;
   }
 }
 
@@ -124,6 +148,41 @@ $spacing: 20px;
   }
 }
 
+@keyframes button-vibrate {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1px, -1px);
+  }
+  50% {
+    transform: translate(1px, 1px);
+  }
+  75% {
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes ultra-vibrate {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-2px, 0);
+  }
+  40% {
+    transform: translate(2px, 1px);
+  }
+  60% {
+    transform: translate(-1px, -2px);
+  }
+  80% {
+    transform: translate(1px, 2px);
+  }
+}
+
 @keyframes shake {
   10%,
   90% {
@@ -154,5 +213,32 @@ $spacing: 20px;
   50% {
     transform: scale(1.5);
     animation-timing-function: ease-in;
+  }
+}
+
+.backgroundUltraMode {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image: url(/ultramode.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  animation: background-ultra 1.5s infinite both;
+}
+
+@keyframes background-ultra {
+  0% {
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: scale(1.6);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
   }
 }

@@ -23,8 +23,8 @@ const EXCLAMATIONS = [
 ];
 const EXCLAMATION_EVERY = 10;
 
-type props = { streak: number; powerMode: boolean };
-export const Streak = ({ streak, powerMode }: props) => {
+type props = { streak: number; powerMode: boolean; ultraMode: boolean };
+export const Streak = ({ streak, powerMode, ultraMode }: props) => {
   const [exclamation, setExclamation] = useState<string | null>(null);
 
   useEffect(() => {
@@ -37,7 +37,10 @@ export const Streak = ({ streak, powerMode }: props) => {
 
   return (
     <>
-      {powerMode && <h1 className={styles.powerMode}>POWER MODE!</h1>}
+      {ultraMode && <h1 className={styles.ultraMode}>ULTRA MODE!</h1>}
+      {powerMode && !ultraMode && (
+        <h1 className={styles.powerMode}>POWER MODE!</h1>
+      )}
       <div className={`${styles.streak} streak`}>
         <h1>Combo</h1>
         <h2>

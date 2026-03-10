@@ -6,7 +6,7 @@ export const Timer = ({ streak }: props) => {
   return (
     <div className={styles.timer}>
       <motion.div
-        className={`${styles.timerInner} TimerInner`}
+        className={styles.timerInner}
         key={streak}
         initial={{ width: streak > 0 ? '100%' : 0 }}
         animate={{ width: 0, transition: { duration: 10 } }}

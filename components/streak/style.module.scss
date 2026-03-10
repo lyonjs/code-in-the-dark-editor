@@ -8,6 +8,16 @@
   margin: 0;
 }
 
+.ultraMode {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  color: #f80;
+  margin: 0;
+}
+
 .streak {
   position: absolute;
   top: 20px;
@@ -50,7 +60,7 @@
     padding: 10px 0;
   }
   .timerInner {
-    background-color: #4effa1;
+    background-color: var(--timer-color, #4effa1);
     opacity: 0.5;
     height: 10px;
   }
