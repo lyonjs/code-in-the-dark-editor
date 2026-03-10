@@ -29,10 +29,15 @@ export const EditorView = () => {
   const [showReference, setShowReference] = useState(false);
   const shouldWeSaveResult = entry?.template?.private;
 
-  const debouncedSearchTermChanged = useDebounceCallback(() => {
+  const resetStreak = useCallback(() => {
     setStreak(0);
     setPowerMode(false);
-  }, STREAK_TIMEOUT);
+  }, []);
+
+  const debouncedSearchTermChanged = useDebounceCallback(
+    resetStreak,
+    STREAK_TIMEOUT
+  );
 
   const onChange = useCallback(
     (newValue: string) => {
