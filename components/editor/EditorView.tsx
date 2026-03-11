@@ -6,8 +6,10 @@ import { useEntryStore } from '../../hooks/useEntryStore';
 import { useEditorModeStore } from '../../hooks/useEditorModeStore';
 
 import styles from '../../styles/editor.module.scss';
+import instructionsStyles from '../instructions/instructions.module.scss';
 import { useRouter } from 'next/navigation';
 import { Modal } from '../modal/Modal';
+import { InstructionsContent } from '../instructions/InstructionsContent';
 import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
 import { Editor } from './Editor';
@@ -122,7 +124,30 @@ export const EditorView = () => {
       onKeyDown={powerModeShakeOnKeyDown}
     >
       <Modal show={showInstructions} setShow={setShowInstructions}>
-        <pre>{entry?.template?.instructions}</pre>
+        <div className={instructionsStyles.instructions}>
+          <h2 className={instructionsStyles.section}>The rules</h2>
+          <ol className={instructionsStyles.list}>
+            <li>No previews - of either results or assets!</li>
+            <li>Stay in this editor at all times</li>
+            <li>No measurement tools</li>
+            <li>Stop coding when the time&apos;s up</li>
+            <li>After the round is over, press &quot;Finish&quot;</li>
+          </ol>
+          <p className={instructionsStyles.paragraph}>
+            Good luck and most important of all : have fun ! 🥳
+          </p>
+          <h2 className={instructionsStyles.section}>Reminder</h2>
+          <p className={instructionsStyles.paragraph}>
+            ⚠️ Remember to resize images if necessary
+          </p>
+          <p className={instructionsStyles.paragraph}>
+            ⚠️ Beware of file extensions !
+          </p>
+          <p className={instructionsStyles.paragraph}>
+            ⚠️ All images have straight borders, no radius !
+          </p>
+          <InstructionsContent template={entry?.template} />
+        </div>
       </Modal>
       <Modal show={showReference} setShow={setShowReference}>
         {entry?.template?.referenceImage ? (

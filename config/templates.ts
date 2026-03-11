@@ -19,12 +19,20 @@ import { TheDarkChapterOneTemplate } from './theDarkChapterOne.template';
 import { TheDarkChapterTwoTemplate } from './theDarkChapterTwo.template';
 import { TheDarkChapterThreeTemplate } from './theDarkChapterThree.template';
 
+export interface TemplateAsset {
+  path: string;
+  label?: string;
+}
+
 export interface TemplateInformations {
   eventId: number;
   eventName: string;
   private?: boolean;
   referenceImage: string;
-  instructions: string;
+  texts?: string[];
+  assets?: TemplateAsset[];
+  colors?: string[];
+  font?: string;
   injectCode?: string;
   showPreview: boolean;
   demoMode: boolean;
