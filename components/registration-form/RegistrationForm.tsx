@@ -11,10 +11,14 @@ import styles from '../../styles/register.module.scss';
 import { Tabs } from 'radix-ui';
 import slugify from 'slugify';
 
+const publicTemplates = (Object.keys(templatesDictionary) as TemplateName[]).filter(
+  (name) => !templatesDictionary[name].private
+);
+
 export function RegistrationForm() {
   const router = useRouter();
   const [selectedTemplate, setSelectedTemplate] = useState<TemplateName>(
-    TemplateName.CITD
+    publicTemplates[0]
   );
   const [isTrainningSession, setIsTrainningSession] = useState<boolean>(true);
   const { entry, updateFullName, updateId, updateIsLoading, updateTemplate } =
@@ -85,18 +89,11 @@ export function RegistrationForm() {
                 setSelectedTemplate(e.target.value as TemplateName)
               }
             >
-              {Object.keys(templatesDictionary)
-                .filter(
-                  (name) =>
-                    !templatesDictionary[
-                      name as keyof typeof templatesDictionary
-                    ].private
-                )
-                .map((name) => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
+              {publicTemplates.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
             </select>
             <Image
               priority
