@@ -32,8 +32,8 @@
     "@types/node": "22.19.15",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "oxfmt": "0.28.0",
-    "oxlint": "1.43.0",
+    "oxfmt": "0.40.0",
+    "oxlint": "1.55.0",
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
