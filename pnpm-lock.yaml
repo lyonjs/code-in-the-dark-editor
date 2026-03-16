@@ -230,12 +230,12 @@ packages:
     resolution: {integrity: sha512-iitV/gZKQMvY9d7ovmyFnFuTHbBAtrmLnvaSb/3X8vOKyevwtpmEtyc8AdhVWZe0pI/1GsHxlEvQeOePFzy7KQ==}
     engines: {node: '>=20.0.0'}
 
-  '@aws/lambda-invoke-store@0.2.3':
-    resolution: {integrity: sha512-oLvsaPMTBejkkmHhjf09xTgk71mOqyr/409NKhRIL08If7AhVfUsJhVsx386uJaqNd42v9kWamQ9lFbkoC2dYw==}
+  '@aws/lambda-invoke-store@0.2.4':
+    resolution: {integrity: sha512-iY8yvjE0y651BixKNPgmv1WrQc+GZ142sb0z4gYnChDDY2YqI4P/jsSopBWrKfAt7LOJAkOXt7rC/hms+WclQQ==}
     engines: {node: '>=18.0.0'}
 
-  '@emnapi/runtime@1.8.1':
-    resolution: {integrity: sha512-mehfKSMWjjNol8659Z8KxEMrdSJDDot5SXMq00dM8BN4o+CLNXQ0xH2V7EchNHV4RmbZLmmPdEaXZc5H2FXmDg==}
+  '@emnapi/runtime@1.9.0':
+    resolution: {integrity: sha512-QN75eB0IH2ywSpRpNddCRfQIhmJYBCJ1x5Lb3IscKAL8bMnVAKnRg8dCoXbHzVLLH7P38N2Z3mtulB7W0J0FKw==}
 
   '@floating-ui/core@1.7.5':
     resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
@@ -1563,16 +1563,16 @@ packages:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
     engines: {node: '>=10'}
 
-  baseline-browser-mapping@2.10.0:
-    resolution: {integrity: sha512-lIyg0szRfYbiy67j9KN8IyeD7q7hcmqnJ1ddWmNt19ItGpNN64mnllmxUNFIOdOm6by97jlL6wfpTTJrmnjWAA==}
+  baseline-browser-mapping@2.10.8:
+    resolution: {integrity: sha512-PCLz/LXGBsNTErbtB6i5u4eLpHeMfi93aUv5duMmj6caNu6IphS4q6UevDnL36sZQv9lrP11dbPKGMaXPwMKfQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
   bowser@2.14.1:
     resolution: {integrity: sha512-tzPjzCxygAKWFOJP011oxFHs57HzIhOEracIgAePE4pqB3LikALKnSzUyU4MGs9/iCEUuHlAJTjTc5M+u7YEGg==}
 
-  caniuse-lite@1.0.30001777:
-    resolution: {integrity: sha512-tmN+fJxroPndC74efCdp12j+0rk0RHwV5Jwa1zWaFVyw2ZxAuPeG8ZgWC3Wz7uSjT3qMRQ5XHZ4COgQmsCMJAQ==}
+  caniuse-lite@1.0.30001779:
+    resolution: {integrity: sha512-U5og2PN7V4DMgF50YPNtnZJGWVLFjjsN3zb6uMT5VGYIewieDj1upwfuVNXf4Kor+89c3iCRJnSzMD5LmTvsfA==}
 
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
@@ -1594,8 +1594,8 @@ packages:
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
 
-  fast-xml-builder@1.0.0:
-    resolution: {integrity: sha512-fpZuDogrAgnyt9oDDz+5DBz0zgPdPZz6D4IR7iESxRXElrlGTRkHJ9eEt+SACRJwT0FNFrt71DFQIUFBJfX/uQ==}
+  fast-xml-builder@1.1.3:
+    resolution: {integrity: sha512-1o60KoFw2+LWKQu3IdcfcFlGTW4dpqEWmjhYec6H82AYZU2TVBXep6tMl8Z1Y+wM+ZrzCwe3BZ9Vyd9N2rIvmg==}
 
   fast-xml-parser@5.4.1:
     resolution: {integrity: sha512-BQ30U1mKkvXQXXkAGcuyUA/GA26oEB7NzOtsxCDtyu62sjGw5QraKFhx2Em3WQNjPw9PG6MQ9yuIIgkSDfGu5A==}
@@ -1715,6 +1715,10 @@ packages:
     peerDependenciesMeta:
       oxlint-tsgolint:
         optional: true
+
+  path-expression-matcher@1.1.3:
+    resolution: {integrity: sha512-qdVgY8KXmVdJZRSS1JdEPOKPdTiEK/pi0RkcT2sw1RhXxohdujUlJFPuS1TSkevZ9vzd3ZlL7ULl1MHGTApKzQ==}
+    engines: {node: '>=14.0.0'}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -2205,7 +2209,7 @@ snapshots:
   '@aws-sdk/middleware-recursion-detection@3.972.8':
     dependencies:
       '@aws-sdk/types': 3.973.6
-      '@aws/lambda-invoke-store': 0.2.3
+      '@aws/lambda-invoke-store': 0.2.4
       '@smithy/protocol-http': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
@@ -2359,9 +2363,9 @@ snapshots:
       fast-xml-parser: 5.4.1
       tslib: 2.8.1
 
-  '@aws/lambda-invoke-store@0.2.3': {}
+  '@aws/lambda-invoke-store@0.2.4': {}
 
-  '@emnapi/runtime@1.8.1':
+  '@emnapi/runtime@1.9.0':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -2468,7 +2472,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.34.5':
     dependencies:
-      '@emnapi/runtime': 1.8.1
+      '@emnapi/runtime': 1.9.0
     optional: true
 
   '@img/sharp-win32-arm64@0.34.5':
@@ -3723,11 +3727,11 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  baseline-browser-mapping@2.10.0: {}
+  baseline-browser-mapping@2.10.8: {}
 
   bowser@2.14.1: {}
 
-  caniuse-lite@1.0.30001777: {}
+  caniuse-lite@1.0.30001779: {}
 
   chokidar@4.0.3:
     dependencies:
@@ -3744,11 +3748,13 @@ snapshots:
 
   diff-match-patch@1.0.5: {}
 
-  fast-xml-builder@1.0.0: {}
+  fast-xml-builder@1.1.3:
+    dependencies:
+      path-expression-matcher: 1.1.3
 
   fast-xml-parser@5.4.1:
     dependencies:
-      fast-xml-builder: 1.0.0
+      fast-xml-builder: 1.1.3
       strnum: 2.2.0
 
   framer-motion@12.36.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
@@ -3804,8 +3810,8 @@ snapshots:
     dependencies:
       '@next/env': 16.1.6
       '@swc/helpers': 0.5.15
-      baseline-browser-mapping: 2.10.0
-      caniuse-lite: 1.0.30001777
+      baseline-browser-mapping: 2.10.8
+      caniuse-lite: 1.0.30001779
       postcss: 8.4.31
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -3853,6 +3859,8 @@ snapshots:
       '@oxlint/linux-x64-musl': 1.43.0
       '@oxlint/win32-arm64': 1.43.0
       '@oxlint/win32-x64': 1.43.0
+
+  path-expression-matcher@1.1.3: {}
 
   picocolors@1.1.1: {}
 
