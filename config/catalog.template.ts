@@ -14,6 +14,7 @@ export const CatalogTemplate: TemplateInformations = {
     { path: '/templates/catalog/grande_vadrouille_affiche.jpeg' },
   ],
   colors: ['#FFFFFF', '#FD4D26', '#000000'],
+  font: 'Arial',
   showPreview: true,
   demoMode: true,
 };

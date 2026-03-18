@@ -8,6 +8,25 @@ function getImageSrc(path: string): string {
   return path.startsWith('./') ? path.slice(1) : path;
 }
 
+function ImageDimensions({ src }: { src: string }) {
+  const [dims, setDims] = useState<string | null>(null);
+
+  return (
+    <>
+      <img
+        src={src}
+        alt=""
+        style={{ display: 'none' }}
+        onLoad={(e) => {
+          const img = e.currentTarget;
+          setDims(`${img.naturalWidth}×${img.naturalHeight}`);
+        }}
+      />
+      {dims && <span className={styles.imageDims}>{dims}</span>}
+    </>
+  );
+}
+
 function CopyButton({ value }: { value: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -82,6 +101,7 @@ export function InstructionsContent({
                     </span>
                     <CopyButton value={asset.path} />
                   </div>
+                  <ImageDimensions src={src} />
                 </div>
               );
             })}
