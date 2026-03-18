@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useEntryStore } from '../../hooks/useEntryStore';
+import { templatesDictionary } from '../../config/templates';
 
 import { Modal } from '../../components/modal/Modal';
 import { Button } from '../../components/button/Button';
@@ -13,44 +14,41 @@ export default function Page() {
   const router = useRouter();
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [snapshot] = useState(() => (entry ? { ...entry } : null));
-  const [iframeDocument, setIframeDocument] = useState(
-    iframeRef?.current?.contentDocument
-  );
+  const template = snapshot?.templateName
+    ? templatesDictionary[snapshot.templateName]
+    : undefined;
   const [showReference, setShowReference] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'b') {
-        setShowButton(!showButton);
-      }
-    };
-
-    iframeDocument?.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      iframeDocument?.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [iframeDocument, showButton]);
+  const handleKeyDown = useRef((event: KeyboardEvent) => {
+    if (event.key === 'b') {
+      setShowButton((prev) => !prev);
+    }
+  }).current;
 
   useEffect(() => {
-    if (snapshot?.template?.showPreview && snapshot?.html) {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  useEffect(() => {
+    if (template?.showPreview && snapshot?.html) {
       const doc = iframeRef?.current?.contentDocument;
       doc?.open();
-      doc?.write(snapshot.template.injectCode || '' + snapshot?.html);
+      doc?.write((template.injectCode || '') + snapshot.html);
       doc?.close();
-      setIframeDocument(doc);
 
-      clear();
+      doc?.addEventListener('keydown', handleKeyDown);
+
       updateIsSubmitted(false);
     }
-  }, [snapshot, clear, updateIsSubmitted]);
+  }, [snapshot, template, handleKeyDown, updateIsSubmitted]);
 
   return (
     <>
       <Modal show={showReference} setShow={setShowReference}>
         <img
-          src={snapshot?.template?.referenceImage}
+          src={template?.referenceImage}
           className={styles.referenceImage}
           alt='Reference image'
         />
@@ -67,6 +65,7 @@ export default function Page() {
           </Button>
           <Button
             onClick={() => {
+              clear();
               router.push('/');
             }}
             className={''}
@@ -81,11 +80,11 @@ export default function Page() {
           onClick={() => setShowReference(true)}
           className={styles.editorViewReferenceImage}
           style={{
-            backgroundImage: `url(${snapshot?.template?.referenceImage})`,
+            backgroundImage: `url(${template?.referenceImage})`,
           }}
         />
       </div>
-      {snapshot?.template?.showPreview && (
+      {template?.showPreview && (
         <iframe ref={iframeRef} className={styles.resultPreview} />
       )}
     </>

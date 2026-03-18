@@ -18,6 +18,9 @@ import { CitdTemplate } from './citd.template';
 import { TheDarkChapterOneTemplate } from './theDarkChapterOne.template';
 import { TheDarkChapterTwoTemplate } from './theDarkChapterTwo.template';
 import { TheDarkChapterThreeTemplate } from './theDarkChapterThree.template';
+import { HeroTemplate } from './hero.template';
+import { PlayerTemplate } from './player.template';
+import { CatalogTemplate } from './catalog.template';
 
 export interface TemplateAsset {
   path: string;
@@ -59,6 +62,9 @@ export enum TemplateName {
   THE_DARK_CHAPTER_ONE = 'THE_DARK_CHAPTER_ONE',
   THE_DARK_CHAPTER_TWO = 'THE_DARK_CHAPTER_TWO',
   THE_DARK_CHAPTER_THREE = 'THE_DARK_CHAPTER_THREE',
+  HERO = 'HERO',
+  PLAYER = 'PLAYER',
+  CATALOG = 'CATALOG',
 }
 
 export type TemplateNameList = keyof typeof TemplateName;
@@ -87,4 +93,7 @@ export const templatesDictionary: Record<
   THE_DARK_CHAPTER_ONE: TheDarkChapterOneTemplate,
   THE_DARK_CHAPTER_TWO: TheDarkChapterTwoTemplate,
   THE_DARK_CHAPTER_THREE: TheDarkChapterThreeTemplate,
-};
+  HERO: HeroTemplate,
+  PLAYER: PlayerTemplate,
+  CATALOG: CatalogTemplate,
+};  

@@ -1,5 +1,4 @@
 import {
-  TemplateInformations,
   TemplateNameList,
   templatesDictionary,
 } from '../config/templates';
@@ -8,13 +7,14 @@ import { persist } from 'zustand/middleware';
 
 interface Entry {
   id?: number;
-  template?: TemplateInformations;
+  templateName?: TemplateNameList;
   fullName?: string;
   html?: string;
   submitted?: boolean;
 }
 
 interface EntryStore {
+  hydrated: boolean;
   isSubmitted: boolean;
   isLoading: boolean;
   entry: Entry | null;
@@ -30,6 +30,7 @@ interface EntryStore {
 export const useEntryStore = create<EntryStore>()(
   persist(
     (set, _) => ({
+      hydrated: false,
       isSubmitted: false,
       isLoading: false,
       entry: null,
@@ -53,7 +54,7 @@ export const useEntryStore = create<EntryStore>()(
         set((state) => ({
           entry: {
             ...state.entry,
-            template: templatesDictionary[templateName],
+            templateName,
           },
         }));
       },
@@ -84,6 +85,27 @@ export const useEntryStore = create<EntryStore>()(
     {
       name: 'entry',
       skipHydration: true,
+      version: 1,
+      onRehydrateStorage: () => (state) => {
+        state?.hydrated !== undefined && useEntryStore.setState({ hydrated: true });
+      },
+      partialize: (state) => ({
+        isSubmitted: state.isSubmitted,
+        entry: state.entry,
+      }),
+      migrate: (persisted: any) => {
+        const state = persisted as EntryStore;
+        if (state?.entry && 'template' in state.entry) {
+          const { template, ...rest } = state.entry as any;
+          const name = template?.eventName
+            ? (Object.keys(templatesDictionary) as TemplateNameList[]).find(
+                (k) => templatesDictionary[k].eventName === template.eventName
+              )
+            : undefined;
+          state.entry = { ...rest, templateName: name };
+        }
+        return state;
+      },
     }
   )
 );

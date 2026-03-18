@@ -10,6 +10,7 @@ import instructionsStyles from '../instructions/instructions.module.scss';
 import { useRouter } from 'next/navigation';
 import { Modal } from '../modal/Modal';
 import { InstructionsContent } from '../instructions/InstructionsContent';
+import { templatesDictionary } from '../../config/templates';
 import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
 import { Editor } from './Editor';
@@ -25,7 +26,7 @@ function Loading() {
 
 export const EditorView = () => {
   const router = useRouter();
-  const { entry, updateHtml, isSubmitted, updateIsSubmitted, updateIsLoading } =
+  const { entry, hydrated, updateHtml, isSubmitted, updateIsSubmitted, updateIsLoading } =
     useEntryStore();
   const { setPowerMode: setStorePowerMode, setUltraMode: setStoreUltraMode, reset: resetStoreMode } = useEditorModeStore();
   const [streak, setStreak] = useState(0);
@@ -33,7 +34,8 @@ export const EditorView = () => {
   const [ultraMode, setUltraMode] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showReference, setShowReference] = useState(false);
-  const shouldWeSaveResult = entry?.template?.private;
+  const template = entry?.templateName ? templatesDictionary[entry.templateName] : undefined;
+  const shouldWeSaveResult = template?.private;
 
   const resetStreak = useCallback(() => {
     setStreak(0);
@@ -129,7 +131,6 @@ export const EditorView = () => {
           <ol className={instructionsStyles.list}>
             <li>No previews - of either results or assets!</li>
             <li>Stay in this editor at all times</li>
-            <li>No measurement tools</li>
             <li>Stop coding when the time&apos;s up</li>
             <li>After the round is over, press &quot;Finish&quot;</li>
           </ol>
@@ -146,13 +147,13 @@ export const EditorView = () => {
           <p className={instructionsStyles.paragraph}>
             ⚠️ All images have straight borders, no radius !
           </p>
-          <InstructionsContent template={entry?.template} />
+          <InstructionsContent template={template} />
         </div>
       </Modal>
       <Modal show={showReference} setShow={setShowReference}>
-        {entry?.template?.referenceImage ? (
+        {template?.referenceImage ? (
           <img
-            src={entry.template.referenceImage}
+            src={template.referenceImage}
             className={styles.referenceImage}
             alt='Reference image'
           />
@@ -170,11 +171,15 @@ export const EditorView = () => {
       />
 
       <Suspense fallback={<Loading />}>
-        <Editor
-          onChange={onChange}
-          className={styles.editor}
-          defaultValue={entry?.html || ''}
-        />
+        {hydrated ? (
+          <Editor
+            onChange={onChange}
+            className={styles.editor}
+            defaultValue={entry?.html || ''}
+          />
+        ) : (
+          <Loading />
+        )}
       </Suspense>
 
       <div className={styles.editorViewNametag}>{entry?.fullName || ''}</div>
@@ -186,7 +191,7 @@ export const EditorView = () => {
             onClick={() => setShowReference(true)}
             className={styles.editorViewReferenceImage}
             style={{
-              backgroundImage: `url(${entry?.template?.referenceImage})`,
+              backgroundImage: `url(${template?.referenceImage})`,
             }}
           />
         </div>

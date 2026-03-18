@@ -69,12 +69,14 @@ $spacing: 20px;
 
 .powerModeOuter {
   --timer-color: #0df;
+
   :global(.button),
   :global(.counter) {
     background-color: rgba(0, 221, 255, 0.75);
   }
 
   :global(.streak) {
+
     h2,
     li {
       color: #0df;
@@ -88,6 +90,7 @@ $spacing: 20px;
 
 .ultraModeOuter {
   --timer-color: #f80;
+
   :global(.button),
   :global(.counter) {
     background-color: rgba(255, 136, 0, 0.75);
@@ -96,6 +99,7 @@ $spacing: 20px;
 
   :global(.streak) {
     animation: ultra-vibrate 0.12s ease-in-out infinite;
+
     h2,
     li {
       color: #f80;
@@ -143,47 +147,58 @@ $spacing: 20px;
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0.86);
   }
 }
 
 @keyframes button-vibrate {
+
   0%,
   100% {
     transform: translate(0, 0);
   }
+
   25% {
     transform: translate(-1px, -1px);
   }
+
   50% {
     transform: translate(1px, 1px);
   }
+
   75% {
     transform: translate(1px, -1px);
   }
 }
 
 @keyframes ultra-vibrate {
+
   0%,
   100% {
     transform: translate(0, 0);
   }
+
   20% {
     transform: translate(-2px, 0);
   }
+
   40% {
     transform: translate(2px, 1px);
   }
+
   60% {
     transform: translate(-1px, -2px);
   }
+
   80% {
     transform: translate(1px, 2px);
   }
 }
 
 @keyframes shake {
+
   10%,
   90% {
     transform: translate3d(-1px, 2px, 0);
@@ -210,6 +225,7 @@ $spacing: 20px;
   0% {
     animation-timing-function: ease-out;
   }
+
   50% {
     transform: scale(1.5);
     animation-timing-function: ease-in;
@@ -234,10 +250,12 @@ $spacing: 20px;
   0% {
     animation-timing-function: ease-out;
   }
+
   50% {
     transform: scale(1.6);
     animation-timing-function: ease-in;
   }
+
   100% {
     transform: scale(1);
   }
