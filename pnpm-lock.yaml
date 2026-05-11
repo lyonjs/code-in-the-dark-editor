@@ -12,8 +12,8 @@ importers:
         specifier: 3.1045.0
         version: 3.1045.0
       ace-builds:
-        specifier: 1.43.6
-        version: 1.43.6
+        specifier: 1.44.0
+        version: 1.44.0
       motion:
         specifier: 12.38.0
         version: 12.38.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -1633,8 +1633,8 @@ packages:
   '@types/react@19.2.14':
     resolution: {integrity: sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==}
 
-  ace-builds@1.43.6:
-    resolution: {integrity: sha512-L1ddibQ7F3vyXR2k2fg+I8TQTPWVA6CKeDQr/h2+8CeyTp3W6EQL8xNFZRTztuP8xNOAqL3IYPqdzs31GCjDvg==}
+  ace-builds@1.44.0:
+    resolution: {integrity: sha512-PFNMSYqFdEUkul2Ntud0HvA09AgY+F1ag0UYdpMH60wNI/qOA8cB8tlTgoALMEwIdUPJK2CjrIQ7OnbiSS/ugQ==}
 
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
@@ -3834,7 +3834,7 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  ace-builds@1.43.6: {}
+  ace-builds@1.44.0: {}
 
   aria-hidden@1.2.6:
     dependencies:
@@ -4071,7 +4071,7 @@ snapshots:
 
   react-ace@14.0.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
-      ace-builds: 1.43.6
+      ace-builds: 1.44.0
       diff-match-patch: 1.0.5
       lodash.get: 4.4.2
       lodash.isequal: 4.5.0
