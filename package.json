@@ -21,7 +21,7 @@
     "react-ace": "14.0.1",
     "react-countdown": "2.3.6",
     "react-dom": "19.2.6",
-    "react-hook-form": "7.76.0",
+    "react-hook-form": "7.76.1",
     "sass": "1.100.0",
     "slugify": "1.6.9",
     "temporal-polyfill": "0.3.0",
