@@ -15,7 +15,7 @@
     "@aws-sdk/client-s3": "3.1065.0",
     "ace-builds": "1.44.0",
     "motion": "12.40.0",
-    "next": "16.2.7",
+    "next": "16.2.9",
     "radix-ui": "1.5.0",
     "react": "19.2.7",
     "react-ace": "14.0.1",
