@@ -14,7 +14,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "3.1075.0",
     "ace-builds": "1.44.0",
-    "motion": "12.41.0",
+    "motion": "12.42.0",
     "next": "16.2.9",
     "radix-ui": "1.6.0",
     "react": "19.2.7",
