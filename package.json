@@ -12,7 +12,7 @@
     "format:fix": "oxfmt --write"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.1079.0",
+    "@aws-sdk/client-s3": "3.1080.0",
     "ace-builds": "1.44.0",
     "motion": "12.42.2",
     "next": "16.2.10",
