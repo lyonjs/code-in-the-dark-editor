@@ -24,7 +24,7 @@
     "react-hook-form": "7.82.0",
     "sass": "1.101.7",
     "slugify": "1.6.9",
-    "temporal-polyfill": "0.3.0",
+    "temporal-polyfill": "0.3.2",
     "usehooks-ts": "3.1.1",
     "zustand": "4.5.7"
   },
