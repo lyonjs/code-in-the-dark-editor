@@ -19,7 +19,7 @@ importers:
         version: 12.42.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       next:
         specifier: 16.2.11
-        version: 16.2.11(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.101.7)
+        version: 16.2.11(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.102.0)
       radix-ui:
         specifier: 1.6.7
         version: 1.6.7(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -39,8 +39,8 @@ importers:
         specifier: 7.83.0
         version: 7.83.0(react@19.2.8)
       sass:
-        specifier: 1.101.7
-        version: 1.101.7
+        specifier: 1.102.0
+        version: 1.102.0
       slugify:
         specifier: 1.6.9
         version: 1.6.9
@@ -1602,8 +1602,8 @@ packages:
     resolution: {integrity: sha512-9u/XQ1pvrQtYyMpZe7DXKv2p5CNvyVwzUB6uhLAnQwHMSgKMBR62lc7AHljaeteeHXn11XTAaLLUVZYVZyuRBQ==}
     engines: {node: '>= 20.19.0'}
 
-  sass@1.101.7:
-    resolution: {integrity: sha512-cDeUYU0dhwKVbpYg/ppsjyuoddxYhWlJOkRoI7+/iZsaSp7iowWDfm+tL2HcUafedWBDvbf/+hx0QRgKG4JSHA==}
+  sass@1.102.0:
+    resolution: {integrity: sha512-NSOyTnaQF7rTAEOtI2fwb386vL+akyiQLBZu8Na7hXCb+umJy0GAqlcMIaqACZ6Z1VgTBS4K9PG6B3IdjHGJsw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -3033,7 +3033,7 @@ snapshots:
 
   nanoid@3.3.16: {}
 
-  next@16.2.11(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.101.7):
+  next@16.2.11(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.102.0):
     dependencies:
       '@next/env': 16.2.11
       '@swc/helpers': 0.5.15
@@ -3052,7 +3052,7 @@ snapshots:
       '@next/swc-linux-x64-musl': 16.2.11
       '@next/swc-win32-arm64-msvc': 16.2.11
       '@next/swc-win32-x64-msvc': 16.2.11
-      sass: 1.101.7
+      sass: 1.102.0
       sharp: 0.34.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -3236,7 +3236,7 @@ snapshots:
 
   readdirp@5.0.0: {}
 
-  sass@1.101.7:
+  sass@1.102.0:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
