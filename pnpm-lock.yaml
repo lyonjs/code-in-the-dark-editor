@@ -27,8 +27,8 @@ importers:
         specifier: 19.2.8
         version: 19.2.8
       react-ace:
-        specifier: 14.0.1
-        version: 14.0.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: 14.1.0
+        version: 14.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react-countdown:
         specifier: 2.3.6
         version: 2.3.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1387,6 +1387,10 @@ packages:
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
 
+  fast-equals@5.4.1:
+    resolution: {integrity: sha512-DjlFSM5Pk9cGcL0q5QXl66eGzx0N6szNgaswwc5ZphlBohjTVJSnGgI+rJVOgOi65qUoQnDZN4nDqi33udtydQ==}
+    engines: {node: '>=6.0.0'}
+
   framer-motion@12.43.0:
     resolution: {integrity: sha512-1eaL3RvR/kAlbG7UYcpMptEyzPoENO0c6w7ZnB3/hh2vSAz/6uGAFn6fdoqTBguNstf3MsFhJHsD/0DHiclG+g==}
     peerDependencies:
@@ -1421,14 +1425,6 @@ packages:
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-
-  lodash.get@4.4.2:
-    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
-    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
-
-  lodash.isequal@4.5.0:
-    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
-    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -1532,8 +1528,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  react-ace@14.0.1:
-    resolution: {integrity: sha512-z6YAZ20PNf/FqmYEic//G/UK6uw0rn21g58ASgHJHl9rfE4nITQLqthr9rHMVQK4ezwohJbp2dGrZpkq979PYQ==}
+  react-ace@14.1.0:
+    resolution: {integrity: sha512-H+Tuw1oa3uP6zRoLBOayPVaMy5Le4G33OpEmLOfSVks75ajmrmFGbyWWEHfBYLCCpu5KfyFlod9jCEUc7i5ekw==}
     peerDependencies:
       react: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -2974,6 +2970,8 @@ snapshots:
 
   diff-match-patch@1.0.5: {}
 
+  fast-equals@5.4.1: {}
+
   framer-motion@12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       motion-dom: 12.43.0
@@ -2998,10 +2996,6 @@ snapshots:
   js-tokens@4.0.0: {}
 
   lodash.debounce@4.0.8: {}
-
-  lodash.get@4.4.2: {}
-
-  lodash.isequal@4.5.0: {}
 
   loose-envify@1.4.0:
     dependencies:
@@ -3168,12 +3162,11 @@ snapshots:
       '@types/react': 19.2.17
       '@types/react-dom': 19.2.3(@types/react@19.2.17)
 
-  react-ace@14.0.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+  react-ace@14.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       ace-builds: 1.44.0
       diff-match-patch: 1.0.5
-      lodash.get: 4.4.2
-      lodash.isequal: 4.5.0
+      fast-equals: 5.4.1
       prop-types: 15.8.1
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
