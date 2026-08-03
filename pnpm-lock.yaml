@@ -1356,8 +1356,8 @@ packages:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
     engines: {node: '>=10'}
 
-  baseline-browser-mapping@2.11.4:
-    resolution: {integrity: sha512-s4+sLr9mZ/CyqeRritFeYV/Zx73OAtmaHn6kkBS1XRoJn1hrg3xIDUcpicAEX68tkcIN0iBCgti31C8zxtkhsQ==}
+  baseline-browser-mapping@2.11.11:
+    resolution: {integrity: sha512-/yImnXwyTvgMkhgekLHok/Rx5vO6E0BmStWlSqKWMVm2a2ITuZ1Tn+9bgLS+gZRdZmWtd8nxuhHpdmCUOWsTQQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -2949,7 +2949,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  baseline-browser-mapping@2.11.4: {}
+  baseline-browser-mapping@2.11.11: {}
 
   bowser@2.14.1: {}
 
@@ -3021,7 +3021,7 @@ snapshots:
     dependencies:
       '@next/env': 16.2.12
       '@swc/helpers': 0.5.15
-      baseline-browser-mapping: 2.11.4
+      baseline-browser-mapping: 2.11.11
       caniuse-lite: 1.0.30001806
       postcss: 8.4.31
       react: 19.2.8
