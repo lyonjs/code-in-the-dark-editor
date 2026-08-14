@@ -45,8 +45,8 @@ importers:
         specifier: 1.6.9
         version: 1.6.9
       temporal-polyfill:
-        specifier: 0.3.0
-        version: 0.3.0
+        specifier: 1.0.4
+        version: 1.0.4
       usehooks-ts:
         specifier: 3.1.1
         version: 3.1.1(react@19.2.8)
@@ -1644,11 +1644,14 @@ packages:
       babel-plugin-macros:
         optional: true
 
-  temporal-polyfill@0.3.0:
-    resolution: {integrity: sha512-qNsTkX9K8hi+FHDfHmf22e/OGuXmfBm9RqNismxBrnSmZVJKegQ+HYYXT+R7Ha8F/YSm2Y34vmzD4cxMu2u95g==}
+  temporal-polyfill@1.0.4:
+    resolution: {integrity: sha512-MLEU0qOD2uXlz24oINNtdLZQl8RgmMxSnRtKEGZGGetTJjlRwQJjk+VsJ4EREaUoiaTb8NJOcUiKtoAiWn9EBg==}
 
-  temporal-spec@0.3.0:
-    resolution: {integrity: sha512-n+noVpIqz4hYgFSMOSiINNOUOMFtV5cZQNCmmszA6GiVFVRt3G7AqVyhXjhCSmowvQn+NsGn+jMDMKJYHd3bSQ==}
+  temporal-spec@1.0.1:
+    resolution: {integrity: sha512-wxVoanmDeavXie1vu2JaQ3WIc3JZnWAOYFBsJyATaVsXsycKYUflGsyBmrRSnoCpZJpwPyr38VpgSUlQ8CbFxg==}
+
+  temporal-utils@1.0.2:
+    resolution: {integrity: sha512-1B8Dl4KzrOvsNUlpoWGno2VLQlxroLjDgc5NBjVC9ax9ymdo+ezfyvhyjEMx+IVfhINr6CIG2gcnlP95iRrybQ==}
 
   tinypool@2.1.0:
     resolution: {integrity: sha512-Pugqs6M0m7Lv1I7FtxN4aoyToKg1C4tu+/381vH35y8oENM/Ai7f7C4StcoK4/+BSw9ebcS8jRiVrORFKCALLw==}
@@ -3300,11 +3303,14 @@ snapshots:
       client-only: 0.0.1
       react: 19.2.8
 
-  temporal-polyfill@0.3.0:
+  temporal-polyfill@1.0.4:
     dependencies:
-      temporal-spec: 0.3.0
+      temporal-spec: 1.0.1
+      temporal-utils: 1.0.2
 
-  temporal-spec@0.3.0: {}
+  temporal-spec@1.0.1: {}
+
+  temporal-utils@1.0.2: {}
 
   tinypool@2.1.0: {}
 
