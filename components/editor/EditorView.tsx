@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback, Suspense } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useDebounceCallback, useInterval } from 'usehooks-ts';
 import { useEntryStore } from '../../hooks/useEntryStore';
 import { useEditorModeStore } from '../../hooks/useEditorModeStore';
@@ -13,9 +13,11 @@ import { InstructionsContent } from '../instructions/InstructionsContent';
 import { templatesDictionary } from '../../config/templates';
 import { Streak } from '../streak/Streak';
 import { Button } from '../button/Button';
-import { Editor } from './Editor';
+import { useCodeMirror } from './useCodeMirror';
+import './style.scss';
 
 const STREAK_TIMEOUT = 10 * 1000;
+const SHAKE_DURATION_MS = 75;
 
 const POWER_MODE_ACTIVATION_THRESHOLD = 200;
 const ULTRA_MODE_ACTIVATION_THRESHOLD = 500;
@@ -34,7 +36,6 @@ export const EditorView = () => {
   const [ultraMode, setUltraMode] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showReference, setShowReference] = useState(false);
-  const editorHostRef = React.useRef<HTMLDivElement | null>(null);
   const template = entry?.templateName ? templatesDictionary[entry.templateName] : undefined;
   const shouldWeSaveResult = template?.private;
 
@@ -66,6 +67,11 @@ export const EditorView = () => {
     },
     [streak, debouncedSearchTermChanged, updateHtml]
   );
+
+  const { editorRef, shakeEditor } = useCodeMirror({
+    latestValue: entry?.html,
+    onChange,
+  });
 
   useInterval(async () => {
     if (shouldWeSaveResult) {
@@ -114,12 +120,7 @@ export const EditorView = () => {
       2 * Math.random() * Math.floor((streak - threshold) / 100);
     const marginLeftRight = intensity * (Math.random() > 0.5 ? -1 : 1);
     const marginTopBottom = intensity * (Math.random() > 0.5 ? -1 : 1);
-    const editor = editorHostRef.current;
-    if (!editor) return;
-    editor.style.margin = `${marginTopBottom}px ${marginLeftRight}px`;
-    setTimeout(() => {
-      if (editorHostRef.current) editorHostRef.current.style.margin = '';
-    }, 75);
+    shakeEditor(marginLeftRight, marginTopBottom, SHAKE_DURATION_MS);
   };
 
   return (
@@ -174,20 +175,16 @@ export const EditorView = () => {
         }
       />
 
-      <Suspense fallback={<Loading />}>
-        {hydrated ? (
-          <Editor
-            ref={editorHostRef}
-            onChange={onChange}
-            className={styles.editor}
-            defaultValue={entry?.html || ''}
-            powerMode={powerMode}
-            ultraMode={ultraMode}
-          />
-        ) : (
-          <Loading />
-        )}
-      </Suspense>
+      {hydrated ? (
+        <div
+          ref={editorRef}
+          className={`cm-editor-root ${styles.editor}`}
+          data-power-mode={powerMode}
+          data-ultra-mode={ultraMode}
+        />
+      ) : (
+        <Loading />
+      )}
 
       <div className={styles.editorViewNametag}>{entry?.fullName || ''}</div>
 
