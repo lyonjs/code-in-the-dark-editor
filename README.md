@@ -9,7 +9,7 @@ This project is a rewrite of the [original CoffeeScript editor](https://github.c
 ## Features
 
 - **Registration** — Participants enter their name and join a session
-- **Code editor** — Full-screen HTML/CSS editor with syntax highlighting (Ace)
+- **Code editor** — Full-screen HTML/CSS editor with syntax highlighting (CodeMirror)
 - **Countdown timer** — Configurable time limit per round
 - **Live preview** — Optional preview toggle per template
 - **Reference image** — Accessible during the round for participants

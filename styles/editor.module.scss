@@ -67,7 +67,7 @@ $spacing: 20px;
   max-height: 100%;
 }
 
-.powerModeOuter {
+.editorView[data-power-mode='true'] {
   --timer-color: #0df;
 
   :global(.button),
@@ -88,7 +88,7 @@ $spacing: 20px;
   }
 }
 
-.ultraModeOuter {
+.editorView[data-ultra-mode='true'] {
   --timer-color: #f80;
 
   :global(.button),
