@@ -22,7 +22,7 @@
     "react-countdown": "2.3.6",
     "react-dom": "19.2.8",
     "react-hook-form": "7.87.0",
-    "sass": "1.103.1",
+    "sass": "1.104.0",
     "slugify": "1.6.9",
     "temporal-polyfill": "0.3.0",
     "usehooks-ts": "3.1.1",
